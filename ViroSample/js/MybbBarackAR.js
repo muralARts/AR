@@ -11,8 +11,9 @@ import {
   ViroText,
   ViroImage,
   ViroConstants,
+  ViroNode,
   ViroARTrackingTargets,
-  ViroARPlaneSelector
+  ViroARPlane
 } from 'react-viro';
 
 export default class MybbBarackAR extends Component {
@@ -22,7 +23,7 @@ export default class MybbBarackAR extends Component {
 
     // Set initial state here
     this.state = {
-      text : "Initializing AR...",
+      // text : "Initializing AR...",
       plane: [0,0,0],
       paused: false
     };
@@ -32,7 +33,7 @@ export default class MybbBarackAR extends Component {
     this._planeSelected = this._planeSelected.bind(this);
 
     ViroARTrackingTargets.createTargets({
-      'we_strive': {
+      'strive': {
         source: require('./res/strive.png'),
         orientation: "Up",
         physicalWidth: 0.1 // real world width in meters
@@ -47,15 +48,19 @@ export default class MybbBarackAR extends Component {
     // </ViroARScene>
 
     //Planes test
+
     <ViroARScene>
-      <ViroARPlaneSelector minHeight={.5} minWidth={.5} pauseUpdates={this.state.paused} onPlaneSelected={this._planeSelected}></ViroARPlaneSelector>
-      <ViroARImageMarker target={'we_strive'}
+      <ViroNode>
+      <ViroARPlane minHeight={.5} minWidth={.5} pauseUpdates={this.state.paused} onPlaneSelected={this._planeSelected}>
+      <ViroARImageMarker target={'strive'}
         onAnchorFound={this._onAnchorFound}
         pauseUpdates={this.state.pauseUpdates}>
-      <ViroImage source={require('./res/obama.png')} position={[-1,0,0]}/>
-      <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
-    </ViroARImageMarker>
-    </ViroARScene>
+      <ViroImage source={require('./res/obama.png')} position={[0,0,0]} rotation={[-90,0,0]}/>
+      {/* <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} /> */}
+      </ViroARImageMarker>
+      </ViroARPlane>
+      </ViroNode>
+      </ViroARScene>
     );
   }
 

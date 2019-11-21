@@ -10,14 +10,14 @@ import {
 
   // Register the target
   ViroARTrackingTargets.createTargets({
-    'we_striveTarget': {
+    'striveTarget': {
       source: require('./res/strive.png'),
       orientation: "Up",
       physicalWidth: 0.1 // real world width in meters
     },
    });
 
-  <ViroARImageMarker target={'we_striveTarget'} >
-    <ViroBox position={[0, -.1, 0]} scale={[0, 0, 0]} rotation={[0, 0, 90]} dragType='FixedToPlane'/>
+  <ViroARImageMarker target={'striveTarget'} >
+    <ViroBox position={[0, 0, -1]} scale={[0, 0, 0]} rotation={[-90,0,0]}/>
     <ViroImage source={require('./res/obama.png')} />
   </ViroARImageMarker>

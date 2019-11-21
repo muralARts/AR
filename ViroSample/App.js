@@ -30,7 +30,7 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/MybbBarackAR');
+var InitialARScene = require('./js/businesscard');
 var InitialVRScene = require('./js/BarackTarget');
 
 var UNSET = "UNSET";
