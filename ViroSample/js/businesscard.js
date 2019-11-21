@@ -26,13 +26,17 @@ import {
 } from 'react-viro';
 
 export class BusinessCard extends Component {
+constructor(){
+  super()
 
-  state = {
+ this.state = {
     isTracking: false,
     initialized: false,
-    runAnimation: false
+    paused: false
   }
-
+  this._onInitialized = this._onInitialized.bind(this)
+  this._onAnchorFound = this._onAnchorFound.bind(this)
+}
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
     return (
@@ -47,10 +51,7 @@ export class BusinessCard extends Component {
     return (
       <ViroNode>
         <ViroARImageMarker target={'striveTarget'}
-          onAnchorFound={
-            () => this.setState({
-                runAnimation: true
-            })}
+         onAnchorFound={this._onAnchorFound}
         >
           {/* <ViroNode key="card">
             <ViroNode
@@ -60,7 +61,7 @@ export class BusinessCard extends Component {
                 run: this.state.runAnimation
                 }}
             > */}
-              <ViroFlexView
+              {/* <ViroFlexView
                   rotation={[-90, 0, 0]}
                   height={0.03}
                   width={0.05}
@@ -68,7 +69,7 @@ export class BusinessCard extends Component {
               >
                 <ViroFlexView
                   style={styles.cardWrapper}
-                >
+                > */}
                   <ViroImage
                     height={0.20}
                     width={0.15}
@@ -81,11 +82,11 @@ export class BusinessCard extends Component {
                     scale={[.015, .015, .015]}
                     style={styles.textStyle}
                   /> */}
-                </ViroFlexView>
+                {/* </ViroFlexView>
                 <ViroFlexView
                   onTouch={() => alert("twitter")}
                   style={styles.subText}
-                >
+                > */}
                   {/* <ViroText
                     width={0.01}
                     height={0.01}
@@ -101,21 +102,21 @@ export class BusinessCard extends Component {
                     loop={true}
                     source={require('./res/tweet.gif')}
                   /> */}
-                </ViroFlexView>
-              </ViroFlexView>
+                {/* </ViroFlexView>
+              </ViroFlexView> */}
             {/* </ViroNode> */}
-            <ViroNode opacity={0} position={[0, 0, 0]}
+            {/* <ViroNode opacity={0} position={[0, 0, 0]}
               animation={{
                 name:'animateViro',
                 run: this.state.runAnimation
               }}
-            >
+            > */}
               {/* <ViroText text="www.viromedia.com"
                 rotation={[-90, 0, 0]}
                 scale={[.01, .01, .01]}
                 style={styles.textStyle}
               /> */}
-            </ViroNode>
+            {/* </ViroNode> */}
           {/* </ViroNode> */}
         </ViroARImageMarker>
       </ViroNode>
@@ -136,6 +137,13 @@ export class BusinessCard extends Component {
     } else if (state == ViroConstants.TRACKING_NONE) {
       isTracking: false
     }
+  }
+  _onAnchorFound = (state) => {
+    this.setState({
+      isTracking: true,
+      initialized: true,
+      paused: true,
+    })
   }
 }
 

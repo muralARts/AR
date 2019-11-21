@@ -22,6 +22,10 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
+import SplashScreen from './js/components/SplashScreen'
+import HomeScreen from './js/components/HomeScreen'
+
+
 /*
  TODO: Insert your API key below
  */
@@ -30,8 +34,8 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/businesscard');
-var InitialVRScene = require('./js/BarackTarget');
+var InitialARScene = require('./js/components/SplashScreen');
+
 
 var UNSET = "UNSET";
 var VR_NAVIGATOR_TYPE = "VR";
@@ -56,16 +60,31 @@ export default class ViroSample extends Component {
     this._exitViro = this._exitViro.bind(this);
   }
 
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({
+        isLoading: false
+      })
+    },5000)
+  }
+
   // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
   // if you are building a specific type of experience.
   render() {
-    if (this.state.navigatorType == UNSET) {
-      return this._getExperienceSelector();
-    } else if (this.state.navigatorType == VR_NAVIGATOR_TYPE) {
-      return this._getVRNavigator();
-    } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-      return this._getARNavigator();
+    // if (this.state.navigatorType == UNSET) {
+    //   return this._getExperienceSelector();
+    // } else if (this.state.navigatorType == VR_NAVIGATOR_TYPE) {
+    //   return this._getVRNavigator();
+    // } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
+    //   return this._getARNavigator();
+    // }
+    if(this.state.isLoading){
+      return (
+      <SplashScreen />,
+      <HomeScreen />
+      )
     }
+
   }
 
   // Presents the user with a choice of an AR or VR experience
