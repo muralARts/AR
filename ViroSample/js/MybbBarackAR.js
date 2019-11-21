@@ -45,6 +45,8 @@ export default class MybbBarackAR extends Component {
     //   <ViroARScene onTrackingUpdated={this._onInitialized} >
     //   <ViroImage source={require('./res/obama.png')} />
     // </ViroARScene>
+
+    //Planes test
     <ViroARScene>
       <ViroARPlaneSelector minHeight={.5} minWidth={.5} pauseUpdates={this.state.paused} onPlaneSelected={this._planeSelected}></ViroARPlaneSelector>
       <ViroARImageMarker target={'we_strive'}
