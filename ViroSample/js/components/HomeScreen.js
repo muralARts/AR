@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
-import SingleProduct from "./SingleProduct";
+
 
 import {
   ViroARScene,
@@ -44,13 +44,9 @@ export default class HelloWorldSceneAR extends Component {
           color="#ffffff"
           castsShadow={true}
         />
-        {this.props.products.map((item, index) => {
-          if (item){
-          return <SingleProduct item={item} key={index} index={index} triggerItem={() => this.props.trigger(index)} />;
-          }
-        })}
+        <ViroImage source={require('./res/obama.png')} position={[0,0,0]} rotation={[-90,0,0]}/>
       </ViroARScene>
-    );
+    )
   }
 
   _defaultView() {

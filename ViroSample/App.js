@@ -10,6 +10,8 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Image,
+  ImageBackground,
   Text,
   View,
   StyleSheet,
@@ -22,10 +24,6 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-import SplashScreen from './js/components/SplashScreen'
-import HomeScreen from './js/components/HomeScreen'
-
-
 /*
  TODO: Insert your API key below
  */
@@ -34,12 +32,12 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/components/SplashScreen');
+var InitialARScene = require('./js/businesscard');
 
 
 var UNSET = "UNSET";
-var VR_NAVIGATOR_TYPE = "VR";
-var AR_NAVIGATOR_TYPE = "AR";
+var EXPLORE_NAVIGATOR_TYPE = "Explore Exhibitions";
+var COLLECTION_NAVIGATOR_TYPE = "View our Collection";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
@@ -54,69 +52,69 @@ export default class ViroSample extends Component {
       sharedProps : sharedProps
     }
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
-    this._getARNavigator = this._getARNavigator.bind(this);
-    this._getVRNavigator = this._getVRNavigator.bind(this);
+    this._getExploreNavigator = this._getExploreNavigator.bind(this);
+    this._getCollectionNavigator = this._getCollectionNavigator.bind(this);
     this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
     this._exitViro = this._exitViro.bind(this);
   }
 
-  componentDidMount(){
-    setTimeout(()=>{
-      this.setState({
-        isLoading: false
-      })
-    },5000)
-  }
+  // componentDidMount(){
+  //   setTimeout(()=>{
+  //     this.setState({
+  //       isLoading: false
+  //     })
+  //   },5000)
+  // }
 
   // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
   // if you are building a specific type of experience.
   render() {
-    // if (this.state.navigatorType == UNSET) {
-    //   return this._getExperienceSelector();
-    // } else if (this.state.navigatorType == VR_NAVIGATOR_TYPE) {
-    //   return this._getVRNavigator();
-    // } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-    //   return this._getARNavigator();
-    // }
-    if(this.state.isLoading){
-      return (
-      <SplashScreen />,
-      <HomeScreen />
-      )
+    if (this.state.navigatorType == UNSET) {
+      return this._getExperienceSelector();
+    } else if (this.state.navigatorType == COLLECTION_NAVIGATOR_TYPE) {
+      return this._getCollectionNavigator();
+    } else if (this.state.navigatorType == EXPLORE_NAVIGATOR_TYPE) {
+      return this._getExploreNavigator();
     }
-
+    // if(this.state.isLoading){
+    //   return (
+    //   <HelloWorldSceneAR />
+    //   )
   }
 
   // Presents the user with a choice of an AR or VR experience
   _getExperienceSelector() {
     return (
-      <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
-
-          <Text style={localStyles.titleText}>
-            Choose your desired experience:
+      // <View style={localStyles.outer} >
+      //   <View style={localStyles.inner} >
+      <View style={localStyles.viroContainer}>
+          <View style={localStyles.backgroundContainer}>
+          <Text style={localStyles.titleText}>muralARts</Text>
+          <ImageBackground source={require('./js/res/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+          <Text style={localStyles.catchphraseText}>
+          re imagining the space we’re in with unbound creativity:
           </Text>
 
           <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+            onPress={this._getExperienceButtonOnPress(EXPLORE_NAVIGATOR_TYPE)}
             underlayColor={'#68a0ff'} >
 
-            <Text style={localStyles.buttonText}>AR</Text>
+            <Text style={localStyles.buttonText}>Explore Exhibitions  ></Text>
           </TouchableHighlight>
 
           <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(VR_NAVIGATOR_TYPE)}
+            onPress={this._getExperienceButtonOnPress(COLLECTION_NAVIGATOR_TYPE)}
             underlayColor={'#68a0ff'} >
 
-            <Text style={localStyles.buttonText}>VR</Text>
+            <Text style={localStyles.buttonText}>View our Collection  ></Text>
           </TouchableHighlight>
-        </View>
+          </View>
       </View>
     );
   }
 
   // Returns the ViroARSceneNavigator which will start the AR experience
-  _getARNavigator() {
+  _getExploreNavigator() {
     return (
       <ViroARSceneNavigator {...this.state.sharedProps}
         initialScene={{scene: InitialARScene}} />
@@ -124,7 +122,7 @@ export default class ViroSample extends Component {
   }
 
   // Returns the ViroSceneNavigator which will start the VR experience
-  _getVRNavigator() {
+  _getCollectionNavigator() {
     return (
       <ViroVRSceneNavigator {...this.state.sharedProps}
         initialScene={{scene: InitialVRScene}} onExitViro={this._exitViro}/>
@@ -171,7 +169,29 @@ var localStyles = StyleSheet.create({
     paddingBottom: 20,
     color:'#fff',
     textAlign:'center',
-    fontSize : 25
+    fontSize : 35
+  },
+  backgroundContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  backgroundImage:{
+    flex: 1,
+    resizeMode: 'stretch'
+  },
+  backdrop: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  catchphraseText: {
+    paddingTop: 30,
+    paddingBottom: 20,
+    color:'#fff',
+    textAlign:'center',
+    fontSize : 20
   },
   buttonText: {
     color:'#fff',
@@ -179,8 +199,9 @@ var localStyles = StyleSheet.create({
     fontSize : 20
   },
   buttons : {
-    height: 80,
-    width: 150,
+    alignItems: 'center',
+    height: 70,
+    width: 250,
     paddingTop:20,
     paddingBottom:20,
     marginTop: 10,
