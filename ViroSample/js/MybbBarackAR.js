@@ -79,6 +79,12 @@ export default class MybbBarackAR extends Component {
       paused : true,
     })
   }
+
+  _onAnchorFound() {
+    this.setState({
+      paused: true,
+    })
+  }
 }
 
 var styles = StyleSheet.create({
