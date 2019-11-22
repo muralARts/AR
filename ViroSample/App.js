@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   AppRegistry,
   Image,
@@ -32,7 +32,7 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/businesscard');
+var InitialARScene = require('./js/Explorer');
 
 
 var UNSET = "UNSET";
@@ -43,7 +43,7 @@ var COLLECTION_NAVIGATOR_TYPE = "View our Collection";
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
 var defaultNavigatorType = UNSET;
 
-export default class ViroSample extends Component {
+export default class App extends Component {
   constructor() {
     super();
 
@@ -58,16 +58,6 @@ export default class ViroSample extends Component {
     this._exitViro = this._exitViro.bind(this);
   }
 
-  // componentDidMount(){
-  //   setTimeout(()=>{
-  //     this.setState({
-  //       isLoading: false
-  //     })
-  //   },5000)
-  // }
-
-  // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
-  // if you are building a specific type of experience.
   render() {
     if (this.state.navigatorType == UNSET) {
       return this._getExperienceSelector();
@@ -76,35 +66,32 @@ export default class ViroSample extends Component {
     } else if (this.state.navigatorType == EXPLORE_NAVIGATOR_TYPE) {
       return this._getExploreNavigator();
     }
-    // if(this.state.isLoading){
-    //   return (
-    //   <HelloWorldSceneAR />
-    //   )
   }
 
-  // Presents the user with a choice of an AR or VR experience
+  // Presents the user with a choice of an AR experiences
   _getExperienceSelector() {
     return (
-      // <View style={localStyles.outer} >
-      //   <View style={localStyles.inner} >
       <View style={localStyles.viroContainer}>
           <View style={localStyles.backgroundContainer}>
+
           <Text style={localStyles.titleText}>muralARts</Text>
-          <ImageBackground source={require('./js/res/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+
+          <ImageBackground source={require('./js/res/collection/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+
           <Text style={localStyles.catchphraseText}>
-          re imagining the space we’re in with unbound creativity:
+          re imagining the space we’re in with unbound creativity
           </Text>
 
           <TouchableHighlight style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(EXPLORE_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
+            underlayColor={'#d3d3d3'} >
 
             <Text style={localStyles.buttonText}>Explore Exhibitions  ></Text>
           </TouchableHighlight>
 
           <TouchableHighlight style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(COLLECTION_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
+            underlayColor={'#d3d3d3'} >
 
             <Text style={localStyles.buttonText}>View our Collection  ></Text>
           </TouchableHighlight>
@@ -150,19 +137,7 @@ export default class ViroSample extends Component {
 var localStyles = StyleSheet.create({
   viroContainer :{
     flex : 1,
-    backgroundColor: "black",
-  },
-  outer : {
-    flex : 1,
-    flexDirection: 'row',
-    alignItems:'center',
-    backgroundColor: "black",
-  },
-  inner: {
-    flex : 1,
-    flexDirection: 'column',
-    alignItems:'center',
-    backgroundColor: "black",
+    backgroundColor: "#d3d3d3",
   },
   titleText: {
     paddingTop: 30,
@@ -180,7 +155,7 @@ var localStyles = StyleSheet.create({
   },
   backgroundImage:{
     flex: 1,
-    resizeMode: 'stretch'
+    // resizeMode: 'cover'
   },
   backdrop: {
     flex: 1,
@@ -198,18 +173,22 @@ var localStyles = StyleSheet.create({
     textAlign:'center',
     fontSize : 20
   },
-  buttons : {
-    alignItems: 'center',
-    height: 70,
+  buttons: {
+    alignContent: 'center',
+    height: 65,
     width: 250,
     paddingTop:20,
     paddingBottom:20,
     marginTop: 10,
-    marginBottom: 10,
-    backgroundColor:'#68a0cf',
+    marginBottom: 20,
+    backgroundColor:'#d3d3d3',
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
+  },
+  scrollView: {
+    backgroundColor: '#d3d3d3',
+    marginHorizontal: 20,
   },
   exitButton : {
     height: 50,
@@ -218,11 +197,11 @@ var localStyles = StyleSheet.create({
     paddingBottom:10,
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor:'#68a0cf',
+    backgroundColor:'#FFC0CB',
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
   }
 });
 
-module.exports = ViroSample
+module.exports = App
