@@ -1,0 +1,51 @@
+{
+  "exhibits": {
+    "fullstack": {
+      "menuImage": "biggie.png",
+      "coordinates": "40°42'18.4`N 74°00'33.0`W",
+      "borough": "Manhattan",
+      "obama": {
+        "image": "obama.png",
+        "title": "President Barack Obama",
+        "artist": "Kehinde Wiley",
+        "year": "2018",
+        "description": "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident",
+        "position": "[0,0,0]",
+        "rotation": "[-90,0,0]",
+        "imageMarker": {
+          "targetImage": "strive",
+          "orientation": "Up",
+          "physicalWidth": "0.1"
+        }
+      },
+      "frida": {
+        "image": "obama.png",
+        "title": "President Barack Obama",
+        "artist": "Kehinde Wiley",
+        "year": "2018",
+        "description": "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident",
+        "position": "[0,0,0]",
+        "rotation": "[-90,0,0]",
+        "imageMarker": {
+          "targetImage": "strive",
+          "orientation": "Up",
+          "physicalWidth": "0.1"
+        }
+      },
+      "biggie": {
+        "image": "obama.png",
+        "title": "President Barack Obama",
+        "artist": "Kehinde Wiley",
+        "year": "2018",
+        "description": "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident",
+        "position": "[0,0,0]",
+        "rotation": "[-90,0,0]",
+        "imageMarker": {
+          "targetImage": "strive",
+          "orientation": "Up",
+          "physicalWidth": "0.1"
+        }
+      }
+    }
+  }
+}
