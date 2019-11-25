@@ -48,7 +48,7 @@ var defaultNavigatorType = UNSET;
 const HOME = 'HOME'
 const MAP = 'MAP'
 const EXPLORER = 'EXPLORER'
-const EXHIBITIONS = 'EXHIBTIONS'
+const EXHIBITIONS = 'EXHIBITIONS'
 
 export default class App extends Component {
   constructor() {
@@ -73,7 +73,7 @@ export default class App extends Component {
       case HOME:
         currentView = <Home />
       case MAP:
-        currentView = <MapScreeen />
+        currentView = <MapScreen />
       case EXPLORER:
         currentView = <Explorer />
       case EXHIBITIONS:
