@@ -51,7 +51,7 @@ constructor(){
     return (
       <ViroNode>
         <ViroARImageMarker target={'striveTarget'}
-         onAnchorFound={this._onAnchorFound}>
+         onAnchorFound={this.onAnchorFound}>
                   <ViroImage
                     height={0.20}
                     width={0.15}
@@ -65,20 +65,20 @@ constructor(){
 
   render() {
     return (
-      <ViroARScene onTrackingUpdated={this._onInitialized} >
+      <ViroARScene onTrackingUpdated={this.onInitialized} >
         { this.state.isTracking ? this.getNoTrackingUI() : this.getARScene() }
       </ViroARScene>
     );
   }
 
-  _onInitialized = (state, reason) => {
+  onInitialized = (state, reason) => {
     if (state == ViroConstants.TRACKING_NORMAL) {
       isTracking: true
     } else if (state == ViroConstants.TRACKING_NONE) {
       isTracking: false
     }
   }
-  _onAnchorFound = (state) => {
+  onAnchorFound = (state) => {
     this.setState({
       isTracking: true,
       initialized: true,

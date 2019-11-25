@@ -23,7 +23,12 @@ import {
   ViroVRSceneNavigator,
   ViroARSceneNavigator
 } from 'react-viro';
-import { Explorer } from './js/Explorer';
+
+// import { Explorer } from './js/Explorer';
+
+import {MapScreen, Home, Explorer, Exhibitions, FooterNav} from './js/components/Index'
+
+// import { StickyHeaderFooterScrollView } from 'react-native-sticky-header-footer-scroll-view';
 
 /*
  TODO: Insert your API key below
@@ -33,10 +38,10 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/Explorer');
+// var InitialARScene = require('./js/Explorer');
 
 
-// var UNSET = "UNSET";
+var UNSET = "UNSET";
 // var EXPLORE_NAVIGATOR_TYPE = "Explore Exhibitions";
 // var COLLECTION_NAVIGATOR_TYPE = "View our Collection";
 
@@ -55,11 +60,11 @@ export default class App extends Component {
     super();
 
     this.state = {
-      currentPage: HOME
+      currentPage: MAP
       // navigatorType : defaultNavigatorType,
       // sharedProps : sharedProps
     }
-
+    this.viewMatcher = this.viewMatcher.bind(this)
     // this._getExperienceSelector = this._getExperienceSelector.bind(this);
     // this._getExploreNavigator = this._getExploreNavigator.bind(this);
     // this._getCollectionNavigator = this._getCollectionNavigator.bind(this);
@@ -67,29 +72,57 @@ export default class App extends Component {
     // this._exitViro = this._exitViro.bind(this);
   }
 
-  render() {
-    let currentView = <Home />
-    switch (this.state.currentPage) {
-      case HOME:
-        currentView = <Home />
-      case MAP:
-        currentView = <MapScreen />
-      case EXPLORER:
-        currentView = <Explorer />
-      case EXHIBITIONS:
-        currentView = <Exhibitions />
-      default:
-        currentView = <Home />
-    }
+ viewMatcher(){
+  switch (this.state.currentPage) {
+    case HOME:
+      return <Home />
+    case MAP:
+      return <MapScreen />
+    case EXPLORER:
+      return <Explorer />
+    case EXHIBITIONS:
+      return <Exhibitions />
+    default:
+      return <Home />
+  }
+}
 
+  render(){
+    let currentView = this.viewMatcher()
     return (
-      <view>
-        <Header />
-        {currentView}
-        <Footer />
-      </view>
-    )
+      <View style={localStyles.container}>
+        <View style={localStyles.body}>
+          <Text style={localStyles.titleText}>muralARts</Text>
+          <View>
+            <Image source={require('./js/res/collection/biggie.jpg')} />
+          </View>
+        </View>
+        <View style={localStyles.footer}>
+          <FooterNav />
+        </View>
+      </View>
 
+    //   <View>
+    //   <StickyHeaderFooterScrollView
+    //   renderStickyHeader={() => (
+    //     <View style={localStyles.titleText}>
+    //       <Text>{`muralARts`}</Text>
+    //     </View>
+    //   )}
+    //   renderStickyFooter={() => (
+    //     <View style={localStyles.footerImage}>
+    //       <FooterNav />
+    //     </View>
+    //   )}
+    // >
+    //   <View style={{ height: 1200, backgroundColor: '#eee' }}>
+    //     {currentView}
+    //   </View>
+    // </StickyHeaderFooterScrollView>
+    // </View>
+  )
+}
+}
     // if (this.state.navigatorType == UNSET) {
     //   return this._getExperienceSelector();
     // } else if (this.state.navigatorType == COLLECTION_NAVIGATOR_TYPE) {
@@ -97,7 +130,6 @@ export default class App extends Component {
     // } else if (this.state.navigatorType == EXPLORE_NAVIGATOR_TYPE) {
     //   return this._getExploreNavigator();
     // }
-  }
 
   // Presents the user with a choice of an AR experiences
   // _getExperienceSelector() {
@@ -163,14 +195,38 @@ export default class App extends Component {
   //     navigatorType : UNSET
     // })
   // }
-}
+
 
 var localStyles = StyleSheet.create({
   viroContainer :{
     flex : 1,
     backgroundColor: "#d3d3d3",
   },
+  container:{
+    backgroundColor: '#fff',
+    flex: 1,
+    justifyContent: 'center'
+  },
+  body:{
+    flex: 1,
+    backgroundColor: '#d3d3d3',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  footer:{
+    backgroundColor: '#d3d3d3',
+    alignItems: 'center',
+    height: 75,
+    justifyContent: 'space-around'
+  },
   titleText: {
+    paddingTop: 30,
+    paddingBottom: 20,
+    color:'#425675',
+    textAlign:'center',
+    fontSize : 35
+  },
+  arText: {
     paddingTop: 30,
     paddingBottom: 20,
     color:'#fff',

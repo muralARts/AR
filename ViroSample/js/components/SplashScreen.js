@@ -8,7 +8,7 @@ export default class SplashScreen extends Component {
     const viewStyles = [styles.helloWorldTextStyle, { backgroundColor: 'white' }];
     return (
     <View style={viewStyles}>
-        <Image source={require('../res/biggie.jpg')}  style={{width: '100%', height: '100%'}}/>
+        <Image source={require('../res/collection/biggie.jpg')}  style={{width: '100%', height: '100%'}}/>
     </View>
     );
   }

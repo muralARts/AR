@@ -23,7 +23,7 @@ export default class Home extends Component {
       <View style={localStyles.viroContainer}>
           <View style={localStyles.backgroundContainer}>
           <Text style={localStyles.titleText}>muralARts</Text>
-          <ImageBackground source={require('../js/res/collection/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+          <ImageBackground source={require('../res/collection/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
           <Text style={localStyles.catchphraseText}>
           re imagining the space we’re in with unbound creativity
           </Text>

@@ -50,7 +50,7 @@ constructor(){
                     height={0.20}
                     width={0.15}
                     style={styles.image}
-                    source={require('../js/res/collection/obama.png')}
+                    source={require('../res/collection/obama.png')}
                   />
         </ViroARImageMarker>
       </ViroNode>
