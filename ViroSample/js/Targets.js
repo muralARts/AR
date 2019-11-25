@@ -9,10 +9,30 @@ import {
   // Register the target
   ViroARTrackingTargets.createTargets({
     'striveTarget': {
-      source: require('./res/target/strive.png'),
+      source: require('./res/targets/strive.png'),
       orientation: "Up",
       physicalWidth: 0.1 // real world width in meters
     },
+    'assholeTarget': {
+      source: require('./res/targets/asshole.png'),
+      orientation: "Up",
+      physicalWidth: 0.1 // real world width in meters
+    },
+    'fullstackTarget': {
+      source: require('./res/targets/fullstack.png'),
+      orientation: "Up",
+      physicalWidth: 0.1 // real world width in meters
+    },
+    'red_wallTarget': {
+      source: require('./res/targets/red_wall.jpg'),
+      orientation: "Up",
+      physicalWidth: 0.1 // real world width in meters
+    },
+    'screenTarget': {
+      source: require('./res/targets/screen.jpg'),
+      orientation: "Up",
+      physicalWidth: 0.1 // real world width in meters
+    }
    });
 
   // <ViroARImageMarker target={'striveTarget'} >

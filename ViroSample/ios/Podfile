@@ -1,0 +1,39 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+pod 'RNGestureHandler', :podspec => '../node_modules/react-native-gesture-handler/RNGestureHandler.podspec'
+pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+pod 'React', :path => '../../node_modules/react-native', :subspecs => [
+   'Core',
+    'RCTText',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTSettings',
+    'RCTVibration',
+    'RCTGeolocation',
+    'RCTActionSheet',
+    'RCTNetwork',
+    'RCTWebSocket'
+  ]
+target 'ViroSample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ViroSample
+
+  target 'ViroSample-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ViroSampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'ViroSample-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+end
