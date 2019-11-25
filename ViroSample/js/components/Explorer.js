@@ -1,9 +1,6 @@
-'use strict';
-
-import React, { Component } from 'react';
-
-import {StyleSheet} from 'react-native';
-
+'use strict'
+import React, { Component } from 'react'
+import {StyleSheet} from 'react-native'
 import {
   ViroARScene,
   ViroDirectionalLight,
@@ -23,19 +20,17 @@ import {
   ViroNode,
   Viro3DObject,
   ViroQuad
-} from 'react-viro';
-
+} from 'react-viro'
 export class Explorer extends Component {
 constructor(){
   super()
-
  this.state = {
     isTracking: false,
     initialized: false,
     paused: false
   }
-  this._onInitialized = this._onInitialized.bind(this)
-  this._onAnchorFound = this._onAnchorFound.bind(this)
+  this.onInitialized = this.onInitialized.bind(this)
+  this.onAnchorFound = this.onAnchorFound.bind(this)
 }
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
@@ -46,7 +41,6 @@ constructor(){
       }/>
     )
   }
-
   getARScene() {
     return (
       <ViroNode>
@@ -56,13 +50,12 @@ constructor(){
                     height={0.20}
                     width={0.15}
                     style={styles.image}
-                    source={require('./res/collection/obama.png')}
+                    source={require('../res/collection/obama.png')}
                   />
         </ViroARImageMarker>
       </ViroNode>
     )
   }
-
   render() {
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized} >
@@ -70,7 +63,6 @@ constructor(){
       </ViroARScene>
     );
   }
-
   onInitialized = (state, reason) => {
     if (state == ViroConstants.TRACKING_NORMAL) {
       isTracking: true
@@ -86,7 +78,6 @@ constructor(){
     })
   }
 }
-
 var styles = StyleSheet.create({
   textStyle: {
     flex: .5,
@@ -113,5 +104,4 @@ var styles = StyleSheet.create({
     flex: .5
   }
 });
-
-module.exports = Explorer;
+module.exports = Explorer

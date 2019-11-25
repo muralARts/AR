@@ -44,7 +44,7 @@ export default class HelloWorldSceneAR extends Component {
           color="#ffffff"
           castsShadow={true}
         />
-        <ViroImage source={require('./res/obama.png')} position={[0,0,0]} rotation={[-90,0,0]}/>
+        <ViroImage source={require('../res/collection/obama.png')} position={[0,0,0]} rotation={[-90,0,0]}/>
       </ViroARScene>
     )
   }
