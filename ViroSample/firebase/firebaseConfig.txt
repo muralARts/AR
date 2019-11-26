@@ -1,5 +1,0 @@
-import Firebase from 'firebase';
- testing 123
-
-
-123 123 123

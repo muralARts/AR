@@ -57,6 +57,4 @@ buck-out/
 *.jsbundle
 
 #firebase
-firebaseConfig.txt
-firebaseConfig2.txt
-firebaseConfig3.txt
+firebaseConfig.js
