@@ -13,8 +13,8 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import {Borough, MapScreen, Home, Explorer, Exhibitions, Header, FooterNav} from './js/components/Index'
 
-import {MapScreen, Home, Explorer, Exhibitions, Header, FooterNav} from './js/components/Index'
 
 /*
  TODO: Insert your API key below
@@ -35,6 +35,7 @@ const HOME = 'HOME'
 const MAP = 'MAP'
 const EXPLORER = 'EXPLORER'
 const EXHIBITIONS = 'EXHIBITIONS'
+const BOROUGH = 'BOROUGH'
 
 export default class App extends Component {
   constructor() {
@@ -50,21 +51,23 @@ export default class App extends Component {
  viewMatcher(){
   switch (this.state.currentPage) {
     case HOME:
-      return <Home />
+      return <Home onPressFunc={this.onPress}/>
     case MAP:
       return <MapScreen />
     case EXPLORER:
       return <Explorer />
     case EXHIBITIONS:
       return <Exhibitions />
+      case BOROUGH:
+      return <Borough />
     default:
-      return <Home />
+      return <Home onPressFunc={this.onPress}/>
   }
 }
 
   onPress(page) {
     this.setState({...this.state,
-      currentPage: page
+      currentPage: page,
     })
   }
 
@@ -108,7 +111,7 @@ var localStyles = StyleSheet.create({
   footer:{
     backgroundColor: '#d3d3d3',
     alignItems: 'center',
-    height: 75,
+    height: 60,
     justifyContent: 'space-evenly',
     padding: 10
   },
@@ -139,40 +142,6 @@ var localStyles = StyleSheet.create({
     color:'#fff',
     textAlign:'center',
     fontSize : 20
-  },
-  buttonText: {
-    color:'#fff',
-    textAlign:'center',
-    fontSize : 20
-  },
-  buttons: {
-    alignContent: 'center',
-    height: 65,
-    width: 250,
-    paddingTop:20,
-    paddingBottom:20,
-    marginTop: 10,
-    marginBottom: 20,
-    backgroundColor:'#d3d3d3',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
-  },
-  scrollView: {
-    backgroundColor: '#d3d3d3',
-    marginHorizontal: 20,
-  },
-  exitButton : {
-    height: 50,
-    width: 100,
-    paddingTop:10,
-    paddingBottom:10,
-    marginTop: 10,
-    marginBottom: 10,
-    backgroundColor:'#FFC0CB',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
   }
 });
 

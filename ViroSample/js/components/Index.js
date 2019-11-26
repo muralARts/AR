@@ -4,7 +4,8 @@ import MapScreen from './MapScreen'
 import Exhibitions from './Exhibitions'
 import Header from './Header'
 import FooterNav from './Footer'
+// import Borough from './Borough'
 
 module.exports = {
-  Home, Explorer, MapScreen, Exhibitions, Header, FooterNav
+   Home, Explorer, MapScreen, Exhibitions, Header, FooterNav
 }
