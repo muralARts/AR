@@ -1,17 +1,24 @@
 {
   "exhibits": {
     "fullstack": {
-      "menuImage": "obama.png",
+      "details": {
+      "navImage": "obama.png",
       "coordinates": [-74.009, 40.705],
-      "borough": "Manhattan",
+      "borough": "Manhattan"
+      },
+      "artwork": {
       "obama": {
-        "image": "obama.png",
-        "title": "President Barack Obama",
-        "artist": "Kehinde Wiley",
-        "year": 2018,
-        "description": "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident",
-        "position": [0,0,0],
-        "rotation": [-90,0,0],
+        "image": "obamaPic",
+        "attributes": {
+          "title": "President Barack Obama",
+          "artist": "Kehinde Wiley",
+          "year": 2018,
+          "description": "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident"
+        },
+        "dimensions": {
+          "height": "0.2",
+          "width": "0.15"
+        },
         "imageMarker": {
           "targetImage": "strive",
           "orientation": "Up",
@@ -19,13 +26,17 @@
         }
       },
       "frida": {
-        "image": "frida.png",
+        "image": "fridaPic",
+        "attributes": {
         "title": "Frida",
         "artist": "Diego Rivera",
         "year": 1930,
-        "description": "unibrow",
-        "position": [0,0,0],
-        "rotation": [-90,0,0],
+        "description": "unibrow"
+      },
+        "dimensions": {
+          "height": "0.2",
+          "width": "0.15"
+        },
         "imageMarker": {
           "targetImage": "dontBe",
           "orientation": "Up",
@@ -33,13 +44,17 @@
         }
       },
       "biggie": {
-        "image": "biggie.png",
-        "title": "Christopher Wallace",
-        "artist": "Diddy",
-        "year": 1996,
-        "description": "NOTORIOUS",
-        "position": [0,0,0],
-        "rotation": [-90,0,0],
+        "image": "biggiePic",
+        "attributes": {
+          "title": "Christopher Wallace",
+          "artist": "Diddy",
+          "year": 1996,
+          "description": "NOTORIOUS"
+        },
+        "dimensions": {
+          "height": "0.2",
+          "width": "0.15"
+        },
         "imageMarker": {
           "targetImage": "redWall",
           "orientation": "Up",
@@ -47,5 +62,7 @@
         }
       }
     }
+    }
   }
 }
+
