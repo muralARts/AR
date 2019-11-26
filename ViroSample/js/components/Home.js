@@ -19,23 +19,27 @@ import {
 // var InitialARScene = require('./Explorer')
 
 export default class Home extends Component {
+  constructor(props){
+    super(props)
+  }
   render() {
+    const onPress=this.props.onPressFunc
     return (
       <View style={localStyles.viroContainer}>
           <View style={localStyles.backgroundContainer}>
           <Text style={localStyles.catchphraseText}>
           re imagining the space we’re in with unbound creativity
           </Text>
-          <ImageBackground source={require('../res/collection/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
-          {/* <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(EXPLORE_NAVIGATOR_TYPE)}
-            underlayColor={'#d3d3d3'} >
-            <Text style={localStyles.buttonText}>Explore Exhibitions  ></Text>
+          <ImageBackground source={require('../res/collection/biggie2.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+
+          <TouchableHighlight style={localStyles.buttons} onPress={()=>onPress('EXHIBITIONS')} underlayColor={'#d3d3d3'}>
+            <Text style={localStyles.buttonText} > Explore Exhibitions                >
+            </Text>
           </TouchableHighlight>
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(COLLECTION_NAVIGATOR_TYPE)}
+          {/* <TouchableHighlight style={localStyles.buttons}
+            onPress={()=>onPress('BOROUGH')}
             underlayColor={'#d3d3d3'} >
-            <Text style={localStyles.buttonText}>View our Collection  ></Text>
+            <Text style={localStyles.buttonText}>Browse by Borough  ></Text>
           </TouchableHighlight> */}
           </View>
       </View>
@@ -45,7 +49,7 @@ export default class Home extends Component {
 var localStyles = StyleSheet.create({
   viroContainer :{
     flex : 1,
-    backgroundColor: "#d3d3d3",
+    backgroundColor: "#fff",
   },
   titleText: {
       paddingTop: 25,
@@ -71,44 +75,30 @@ var localStyles = StyleSheet.create({
   catchphraseText: {
     paddingTop: 10,
     paddingBottom: 20,
-    color:'#fff',
+    color: 'black',
     textAlign:'center',
     fontSize: 20,
     fontStyle: 'italic'
   },
   buttonText: {
-    color:'#fff',
+    color:'#425675',
     textAlign:'center',
     fontSize : 20
   },
   buttons: {
     alignContent: 'center',
-    height: 65,
-    width: 250,
-    paddingTop:20,
-    paddingBottom:20,
-    marginTop: 10,
-    marginBottom: 20,
-    backgroundColor:'#d3d3d3',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
-  },
-  scrollView: {
-    backgroundColor: '#d3d3d3',
-    marginHorizontal: 20,
-  },
-  exitButton : {
+    alignSelf: 'center',
     height: 50,
-    width: 100,
+    width: 350,
     paddingTop:10,
     paddingBottom:10,
     marginTop: 10,
-    marginBottom: 10,
-    backgroundColor:'#FFC0CB',
-    borderRadius: 10,
+    marginBottom: 20,
+    marginLeft:30,
+    marginRight: 30,
+    backgroundColor:'#d3d3d3',
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#425675',
   }
 });
 module.exports = Home
