@@ -1,43 +1,28 @@
-'use strict';
-
-import React, { Component } from 'react';
-
-import {StyleSheet} from 'react-native';
-
+'use strict'
+import React, { Component } from 'react'
+import {StyleSheet} from 'react-native'
 import {
   ViroARScene,
-  ViroDirectionalLight,
-  ViroBox,
   ViroConstants,
-  ViroARTrackingTargets,
-  ViroMaterials,
   ViroText,
   ViroImage,
-  ViroFlexView,
   ViroARImageMarker,
-  ViroARObjectMarker,
-  ViroAmbientLight,
-  ViroARPlane,
-  ViroARSceneNavigator,
-  ViroAnimatedImage,
-  ViroAnimations,
+  ViroARTrackingTargets,
   ViroNode,
-  Viro3DObject,
-  ViroQuad
-} from 'react-viro';
+} from 'react-viro'
 
-export class Explorer extends Component {
-constructor(){
-  super()
-
- this.state = {
+export class ARScene extends Component {
+// constructor(){
+//   super()
+ state = {
     isTracking: false,
     initialized: false,
     paused: false
   }
-  this._onInitialized = this._onInitialized.bind(this)
-  this._onAnchorFound = this._onAnchorFound.bind(this)
-}
+  // this.onInitialized = this.onInitialized.bind(this)
+  // this.onAnchorFound = this.onAnchorFound.bind(this)
+  // this.getARScene = this.getARScene.bind(this)
+
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
     return (
@@ -48,30 +33,6 @@ constructor(){
     )
   }
 
-  getARScene() {
-    return (
-      <ViroNode>
-        <ViroARImageMarker target={'striveTarget'}
-         onAnchorFound={this.onAnchorFound}>
-                  <ViroImage
-                    height={0.20}
-                    width={0.15}
-                    style={styles.image}
-                    source={require('./res/collection/obama.png')}
-                  />
-        </ViroARImageMarker>
-      </ViroNode>
-    )
-  }
-
-  render() {
-    return (
-      <ViroARScene onTrackingUpdated={this.onInitialized} >
-        { this.state.isTracking ? this.getNoTrackingUI() : this.getARScene() }
-      </ViroARScene>
-    );
-  }
-
   onInitialized = (state, reason) => {
     if (state == ViroConstants.TRACKING_NORMAL) {
       isTracking: true
@@ -79,14 +40,48 @@ constructor(){
       isTracking: false
     }
   }
+
   onAnchorFound = (state) => {
     this.setState({
-      isTracking: true,
+      isTracking: false,
       initialized: true,
       paused: true,
     })
   }
+
+  getARScene() {
+    return (
+      <ViroNode>
+        <ViroARImageMarker target={'strive'}
+         onAnchorFound={this.onAnchorFound}>
+                  <ViroImage
+                    height={0.20}
+                    width={0.15}
+                    position={[0,0,0]}
+                    rotation={[-90,0,0]}
+                    style={styles.image}
+                    source={require('../res/collection/obama.png')}
+                  />
+        </ViroARImageMarker>
+      </ViroNode>
+    )
+  }
+  render() {
+    return (
+      <ViroARScene onTrackingUpdated={this.onInitialized} >
+        { this.state.isTracking ? this.getNoTrackingUI() : this.getARScene() }
+      </ViroARScene>
+    );
+  }
 }
+
+ViroARTrackingTargets.createTargets({
+  'strive': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1 // real world width in meters
+  },
+ });
 
 var styles = StyleSheet.create({
   textStyle: {
@@ -114,5 +109,4 @@ var styles = StyleSheet.create({
     flex: .5
   }
 });
-
-module.exports = Explorer;
+module.exports = ARScene
