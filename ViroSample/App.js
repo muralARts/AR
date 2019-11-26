@@ -85,6 +85,10 @@ export default class App extends Component {
   }
 }
 
+  onPress (page) {
+    this.state.currentPage = page
+  }
+
   render(){
     let currentView = this.viewMatcher()
     return (
@@ -94,7 +98,7 @@ export default class App extends Component {
           </View>
         <View style={localStyles.body}>
           <View style={localStyles.backgroundContainer}>
-            <Explorer />
+            {currentView}
           </View>
         </View>
         <View style={localStyles.footer}>
