@@ -1,12 +1,9 @@
 'use strict'
 import React, { Component } from 'react'
-import {StyleSheet, Text} from 'react-native'
+import {StyleSheet} from 'react-native'
 import {
-  ViroARScene,
-  ViroConstants,
   ViroText,
   ViroARSceneNavigator,
-  ViroARImageMarker,
 } from 'react-viro'
 
 import ARScene from './ARScene'
@@ -25,7 +22,7 @@ constructor(){
 }
 
   getNoTrackingUI(){
-    const { isTracking, initialized } = this.state;
+    const { initialized } = this.state;
     return (
       <ViroText text={
         initialized ? 'Initializing AR...'
