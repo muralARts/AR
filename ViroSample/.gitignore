@@ -58,4 +58,4 @@ buck-out/
 
 
 #firebase
-./firebase/firebaseConfig.js
+firebaseConfig.js
