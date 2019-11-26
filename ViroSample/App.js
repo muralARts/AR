@@ -58,11 +58,13 @@ export default class App extends Component {
     super();
 
     this.state = {
-      currentPage: MAP
+      currentPage: HOME
       // navigatorType : defaultNavigatorType,
       // sharedProps : sharedProps
     }
     this.viewMatcher = this.viewMatcher.bind(this)
+    this.onPress = this.onPress.bind(this)
+
     // this._getExperienceSelector = this._getExperienceSelector.bind(this);
     // this._getExploreNavigator = this._getExploreNavigator.bind(this);
     // this._getCollectionNavigator = this._getCollectionNavigator.bind(this);
@@ -85,8 +87,10 @@ export default class App extends Component {
   }
 }
 
-  onPress (page) {
-    this.state.currentPage = page
+  onPress(page) {
+    this.setState({...this.state,
+      currentPage: page
+    })
   }
 
   render(){
@@ -102,7 +106,7 @@ export default class App extends Component {
           </View>
         </View>
         <View style={localStyles.footer}>
-          <FooterNav />
+          <FooterNav onPressFunc={this.onPress}/>
         </View>
       </View>
 
@@ -221,7 +225,8 @@ var localStyles = StyleSheet.create({
     backgroundColor: '#d3d3d3',
     alignItems: 'center',
     height: 75,
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    padding: 10
   },
   header:{
     backgroundColor: '#d3d3d3',
