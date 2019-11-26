@@ -24,9 +24,7 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-// import { Explorer } from './js/Explorer';
-
-import {MapScreen, Home, Explorer, Exhibitions, FooterNav} from './js/components/Index'
+import {MapScreen, Home, Explorer, Exhibitions, Header, FooterNav} from './js/components/Index'
 
 // import { StickyHeaderFooterScrollView } from 'react-native-sticky-header-footer-scroll-view';
 
@@ -38,7 +36,7 @@ var sharedProps = {
 }
 
 // Sets the default scene you want for AR and VR
-// var InitialARScene = require('./js/Explorer');
+var InitialARScene = require('./js/components/Explorer');
 
 
 var UNSET = "UNSET";
@@ -91,10 +89,12 @@ export default class App extends Component {
     let currentView = this.viewMatcher()
     return (
       <View style={localStyles.container}>
+         <View style={localStyles.header}>
+          <Header/>
+          </View>
         <View style={localStyles.body}>
-          <Text style={localStyles.titleText}>muralARts</Text>
-          <View>
-            <Image source={require('./js/res/collection/biggie.jpg')} />
+          <View style={localStyles.backgroundContainer}>
+            <Explorer />
           </View>
         </View>
         <View style={localStyles.footer}>
@@ -200,16 +200,16 @@ export default class App extends Component {
 var localStyles = StyleSheet.create({
   viroContainer :{
     flex : 1,
-    backgroundColor: "#d3d3d3",
+    backgroundColor: 'transparent',
   },
   container:{
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     flex: 1,
     justifyContent: 'center'
   },
   body:{
     flex: 1,
-    backgroundColor: '#d3d3d3',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -217,22 +217,29 @@ var localStyles = StyleSheet.create({
     backgroundColor: '#d3d3d3',
     alignItems: 'center',
     height: 75,
-    justifyContent: 'space-around'
+    justifyContent: 'space-evenly'
   },
-  titleText: {
-    paddingTop: 30,
-    paddingBottom: 20,
+  header:{
+    backgroundColor: '#d3d3d3',
+    alignItems: 'center',
+    height: 75,
+    justifyContent: 'space-evenly',
     color:'#425675',
-    textAlign:'center',
-    fontSize : 35
   },
-  arText: {
-    paddingTop: 30,
-    paddingBottom: 20,
-    color:'#fff',
-    textAlign:'center',
-    fontSize : 35
-  },
+  // titleText: {
+  //   paddingTop: 30,
+  //   paddingBottom: 20,
+  //   color:'#425675',
+  //   textAlign:'center',
+  //   fontSize : 35
+  // },
+  // arText: {
+  //   paddingTop: 30,
+  //   paddingBottom: 20,
+  //   color:'#fff',
+  //   textAlign:'center',
+  //   fontSize : 35
+  // },
   backgroundContainer: {
     position: 'absolute',
     top: 0,

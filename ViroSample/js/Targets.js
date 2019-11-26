@@ -8,8 +8,8 @@ import {
 
   // Register the target
   ViroARTrackingTargets.createTargets({
-    'striveTarget': {
-      source: require('./res/target/strive.png'),
+    'hydroflask': {
+      source: require('../js/res/targets/hydroflask.jpg'),
       orientation: "Up",
       physicalWidth: 0.1 // real world width in meters
     },

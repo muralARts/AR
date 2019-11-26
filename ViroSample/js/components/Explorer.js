@@ -1,37 +1,29 @@
 'use strict'
 import React, { Component } from 'react'
-import {StyleSheet} from 'react-native'
+import {StyleSheet, Text} from 'react-native'
 import {
   ViroARScene,
-  ViroDirectionalLight,
-  ViroBox,
   ViroConstants,
-  ViroARTrackingTargets,
-  ViroMaterials,
   ViroText,
-  ViroImage,
-  ViroFlexView,
+  ViroARSceneNavigator,
   ViroARImageMarker,
-  ViroARObjectMarker,
-  ViroAmbientLight,
-  ViroARPlane,
-  ViroAnimatedImage,
-  ViroAnimations,
-  ViroNode,
-  Viro3DObject,
-  ViroQuad
 } from 'react-viro'
+
+import ARScene from './ARScene'
+
+var sharedProps = {
+  apiKey:"API_KEY_HERE",
+}
+
 export class Explorer extends Component {
 constructor(){
   super()
  this.state = {
-    isTracking: false,
-    initialized: false,
-    paused: false
+    sharedProps: sharedProps
   }
-  this.onInitialized = this.onInitialized.bind(this)
-  this.onAnchorFound = this.onAnchorFound.bind(this)
+  this.getARNavigator = this.getARNavigator.bind(this);
 }
+
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
     return (
@@ -41,43 +33,21 @@ constructor(){
       }/>
     )
   }
-  getARScene() {
+
+  getARNavigator() {
     return (
-      <ViroNode>
-        <ViroARImageMarker target={'striveTarget'}
-         onAnchorFound={this.onAnchorFound}>
-                  <ViroImage
-                    height={0.20}
-                    width={0.15}
-                    style={styles.image}
-                    source={require('../res/collection/obama.png')}
-                  />
-        </ViroARImageMarker>
-      </ViroNode>
-    )
-  }
-  render() {
-    return (
-      <ViroARScene onTrackingUpdated={this.onInitialized} >
-        { this.state.isTracking ? this.getNoTrackingUI() : this.getARScene() }
-      </ViroARScene>
+      <ViroARSceneNavigator {...this.state.sharedProps}
+        initialScene={{scene: ARScene}} />
     );
   }
-  onInitialized = (state, reason) => {
-    if (state == ViroConstants.TRACKING_NORMAL) {
-      isTracking: true
-    } else if (state == ViroConstants.TRACKING_NONE) {
-      isTracking: false
-    }
-  }
-  onAnchorFound = (state) => {
-    this.setState({
-      isTracking: true,
-      initialized: true,
-      paused: true,
-    })
+
+  render() {
+    return (
+     this.getARNavigator()
+    );
   }
 }
+
 var styles = StyleSheet.create({
   textStyle: {
     flex: .5,

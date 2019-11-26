@@ -12,22 +12,22 @@ import {
 /*
  TODO: Insert your API key below
  */
-var sharedProps = {
-  apiKey:"API_KEY_HERE",
-}
+// var sharedProps = {
+//   apiKey:"API_KEY_HERE",
+// }
 // Sets the default scene you want for AR and VR
 // var InitialARScene = require('./Explorer')
+
 export default class Home extends Component {
   render() {
     return (
       <View style={localStyles.viroContainer}>
           <View style={localStyles.backgroundContainer}>
-          <Text style={localStyles.titleText}>muralARts</Text>
-          <ImageBackground source={require('../res/collection/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
           <Text style={localStyles.catchphraseText}>
           re imagining the space we’re in with unbound creativity
           </Text>
-          <TouchableHighlight style={localStyles.buttons}
+          <ImageBackground source={require('../res/collection/biggie.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+          {/* <TouchableHighlight style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(EXPLORE_NAVIGATOR_TYPE)}
             underlayColor={'#d3d3d3'} >
             <Text style={localStyles.buttonText}>Explore Exhibitions  ></Text>
@@ -36,7 +36,7 @@ export default class Home extends Component {
             onPress={this._getExperienceButtonOnPress(COLLECTION_NAVIGATOR_TYPE)}
             underlayColor={'#d3d3d3'} >
             <Text style={localStyles.buttonText}>View our Collection  ></Text>
-          </TouchableHighlight>
+          </TouchableHighlight> */}
           </View>
       </View>
     );
@@ -48,11 +48,11 @@ var localStyles = StyleSheet.create({
     backgroundColor: "#d3d3d3",
   },
   titleText: {
-    paddingTop: 30,
-    paddingBottom: 20,
-    color:'#fff',
-    textAlign:'center',
-    fontSize : 35
+      paddingTop: 25,
+      paddingBottom: 8,
+      color:'#425675',
+      textAlign:'center',
+      fontSize : 35
   },
   backgroundContainer: {
     position: 'absolute',
@@ -63,18 +63,18 @@ var localStyles = StyleSheet.create({
   },
   backgroundImage:{
     flex: 1,
-    // resizeMode: 'cover'
   },
   backdrop: {
     flex: 1,
     flexDirection: 'column'
   },
   catchphraseText: {
-    paddingTop: 30,
+    paddingTop: 10,
     paddingBottom: 20,
     color:'#fff',
     textAlign:'center',
-    fontSize : 20
+    fontSize: 20,
+    fontStyle: 'italic'
   },
   buttonText: {
     color:'#fff',
