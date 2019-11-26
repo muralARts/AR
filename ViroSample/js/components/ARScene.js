@@ -12,16 +12,12 @@ import {
 } from 'react-viro'
 
 export class ARScene extends Component {
-// constructor(){
-//   super()
+
  state = {
     isTracking: false,
     initialized: false,
     paused: false
   }
-  // this.onInitialized = this.onInitialized.bind(this)
-  // this.onAnchorFound = this.onAnchorFound.bind(this)
-  // this.getARScene = this.getARScene.bind(this)
 
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
@@ -79,7 +75,7 @@ ViroARTrackingTargets.createTargets({
   'strive': {
     source: require('../res/targets/strive.png'),
     orientation: "Up",
-    physicalWidth: 0.1 // real world width in meters
+    physicalWidth: 0.1
   },
  });
 
