@@ -76,7 +76,7 @@ ViroARTrackingTargets.createTargets({
     source: require('../res/targets/strive.png'),
     orientation: "Up",
     physicalWidth: 0.1
-  },
+  }
  });
 
 var styles = StyleSheet.create({

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23783F93238ED47E00E94A7D /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23783F92238ED47E00E94A7D /* Mapbox.framework */; };
+		23783F94238ED47E00E94A7D /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23783F92238ED47E00E94A7D /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23783F9C238ED58E00E94A7D /* libRCTMGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23783F9B238ED56900E94A7D /* libRCTMGL.a */; };
 		23DF269F238725120079E200 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF269E238725120079E200 /* AppDelegate.swift */; };
 		23DF26A1238725120079E200 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DF26A0238725120079E200 /* ContentView.swift */; };
 		23DF26A3238725120079E200 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 23DF26A2238725120079E200 /* Experience.rcproject */; };
@@ -18,6 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		23783F9A238ED56900E94A7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23783F96238ED56900E94A7D /* RCTMGL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D1443D1F4E16F600396F26;
+			remoteInfo = RCTMGL;
+		};
 		23DF26B2238725140079E200 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 23DF2693238725120079E200 /* Project object */;
@@ -34,7 +44,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		23783F95238ED47E00E94A7D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23783F94238ED47E00E94A7D /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		23783F92238ED47E00E94A7D /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = "../node_modules/@react-native-mapbox-gl/maps/ios/Mapbox.framework"; sourceTree = "<group>"; };
+		23783F96238ED56900E94A7D /* RCTMGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMGL.xcodeproj; path = "../node_modules/@react-native-mapbox-gl/maps/ios/RCTMGL.xcodeproj"; sourceTree = "<group>"; };
 		23DF269B238725120079E200 /* AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23DF269E238725120079E200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23DF26A0238725120079E200 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23783F9C238ED58E00E94A7D /* libRCTMGL.a in Frameworks */,
+				23783F93238ED47E00E94A7D /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +104,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23783F91238ED47E00E94A7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23783F96238ED56900E94A7D /* RCTMGL.xcodeproj */,
+				23783F92238ED47E00E94A7D /* Mapbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23783F97238ED56900E94A7D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23783F9B238ED56900E94A7D /* libRCTMGL.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		23DF2692238725120079E200 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +128,7 @@
 				23DF26B4238725140079E200 /* ARTests */,
 				23DF26BF238725140079E200 /* ARUITests */,
 				23DF269C238725120079E200 /* Products */,
+				23783F91238ED47E00E94A7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +192,8 @@
 				23DF2697238725120079E200 /* Sources */,
 				23DF2698238725120079E200 /* Frameworks */,
 				23DF2699238725120079E200 /* Resources */,
+				23783F95238ED47E00E94A7D /* Embed Frameworks */,
+				23783F9D238ED71C00E94A7D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -226,6 +274,12 @@
 			mainGroup = 23DF2692238725120079E200;
 			productRefGroup = 23DF269C238725120079E200 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 23783F97238ED56900E94A7D /* Products */;
+					ProjectRef = 23783F96238ED56900E94A7D /* RCTMGL.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				23DF269A238725120079E200 /* AR */,
@@ -234,6 +288,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		23783F9B238ED56900E94A7D /* libRCTMGL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTMGL.a;
+			remoteRef = 23783F9A238ED56900E94A7D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		23DF2699238725120079E200 /* Resources */ = {
@@ -261,6 +325,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23783F9D238ED71C00E94A7D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23DF2697238725120079E200 /* Sources */ = {
@@ -437,6 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AR/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/windy/Desktop/Fullstack/GHA/capstone/ViroSample/node_modules/@react-native-mapbox-gl/maps/ios";
 				INFOPLIST_FILE = AR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -456,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AR/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/windy/Desktop/Fullstack/GHA/capstone/ViroSample/node_modules/@react-native-mapbox-gl/maps/ios";
 				INFOPLIST_FILE = AR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
