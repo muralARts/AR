@@ -1,6 +1,6 @@
 import Firebase from 'firebase'
 import {config} from './firebaseConfig'
-import {exhibitsFunc} from '../../firebase/dbTestComponent'
+import {getArtwork, getCoordinates} from '../../firebase/dbTestComponent'
 
 
 let app = Firebase.initializeApp(config);
@@ -36,18 +36,23 @@ const getSingleExhibit = (artwork, coordinates) => { //both are arrays
 export const gettingSingleExhibit = (exhibitName) => {
       return async (dispatch) => {
             //artworks and coordinates
-            const artworks = exhibitsFunc()
-
-            //thunk must return as an array to map over
+            const artworks = getArtwork() //gives us all artwork info
+            const coordinates = getCoordinates() //gives us the coordinates (fullstack)
+            dispatch(getSingleExhibit(artworks, coordinates))
       }
 }
+
+
 
 //reducer
 export const singleExhibitReducer = (singleExhibit=initalState, action) => {
       switch (action.type) {
             case GET_SINGLE_EXHIBIT:
                   return {...singleExhibit, artwork: action.artwork, coordinates: action.coordinates}
+            default:
+                  return singleExhibit
       }
+
       //get artwork
       //get coordinates
 }
