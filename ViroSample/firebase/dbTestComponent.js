@@ -47,7 +47,7 @@ export const getArtwork = () => {
             console.log('VALUES', values[0]) //gives us full paintings
             const paintingObjs = values[0]
             
-            return paintingObjs
+            return paintingObjs //returns object
 })
 }
 
@@ -60,9 +60,45 @@ export const getCoordinates = () => {
             return coordinates
        
 })
+}
 
+//gives all images 
 export const getArtworkImages = () => {
-      
+      exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
+      var exhibit = snapshot.val()
+      var keys = Object.keys(exhibit)
+      var values = Object.values(exhibit)
+      const paintingObjs = values[0]
+      var result = Object.keys(paintingObjs).map(function(key) {
+        return [Number(key), paintingObjs[key]];
+      });
+      const arrayOfArt = []
+      for (let i = 0; i < result.length; i++) {
+        arrayOfArt.push(result[i][1].image)
+      }
+      // console.log(arrayOfArt)
+      return arrayOfArt
+})
+}
+
+export const getNavImage = () => {
+      exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
+      var exhibit = snapshot.val()
+      var keys = Object.keys(exhibit)
+      var values = Object.values(exhibit)
+      const navImage = values[1].navImage
+      return navImage
+})
+}
+
+export const getExhibitName = () => {
+      exhibitsRef.on("value", function(snapshot, prevChildKey) {
+            var exhibit = snapshot.val()
+            var key = Object.keys(exhibit)
+            const exhibitName = key
+            console.log(exhibitName)
+            return exhibitName
+})
 }
 
 
