@@ -57,7 +57,7 @@ export default class App extends Component {
     case EXPLORER:
       return <Explorer />
     case EXHIBITIONS:
-      return <Exhibitions />
+      return <Exhibitions navigate={this.onPress} />
       case BOROUGH:
       return <Borough />
     default:
