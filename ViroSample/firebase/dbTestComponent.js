@@ -59,9 +59,12 @@ export const getCoordinates = () => {
             const coordinates = values[1].coordinates
             return coordinates
        
-        })
 })
+
+export const getArtworkImages = () => {
+      
 }
+
 
 
 
