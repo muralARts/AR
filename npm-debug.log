@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'view',
+1 verbose cli   '--json',
+1 verbose cli   'react-native-ionicons',
+1 verbose cli   'description',
+1 verbose cli   'dist-tags.latest',
+1 verbose cli   'homepage' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly mapToRegistry name react-native-ionicons
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/react-native-ionicons
+8 verbose request uri https://registry.npmjs.org/react-native-ionicons
+9 verbose request no auth needed
+10 info attempt registry request try #1 at 1:08:13 PM
+11 verbose request id fcdaf2ec4d11aa31
+12 verbose etag W/"b23697dc37ad191bdd0d92e049de73a7"
+13 verbose lastModified Fri, 18 Oct 2019 03:26:41 GMT
+14 http request GET https://registry.npmjs.org/react-native-ionicons
+15 http 304 https://registry.npmjs.org/react-native-ionicons
+16 verbose headers { date: 'Wed, 27 Nov 2019 18:08:17 GMT',
+16 verbose headers   connection: 'keep-alive',
+16 verbose headers   'set-cookie':
+16 verbose headers    [ '__cfduid=d052328ef8d706073c46d7cb3950055121574878097; expires=Fri, 27-Dec-19 18:08:17 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+16 verbose headers   'cf-ray': '53c60bed6bf3e6d4-EWR',
+16 verbose headers   'cf-cache-status': 'REVALIDATED',
+16 verbose headers   'cache-control': 'max-age=300',
+16 verbose headers   etag: '"b23697dc37ad191bdd0d92e049de73a7"',
+16 verbose headers   'last-modified': 'Fri, 18 Oct 2019 03:26:41 GMT',
+16 verbose headers   vary: 'accept-encoding, accept',
+16 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+16 verbose headers   server: 'cloudflare' }
+17 silly get cb [ 304,
+17 silly get   { date: 'Wed, 27 Nov 2019 18:08:17 GMT',
+17 silly get     connection: 'keep-alive',
+17 silly get     'set-cookie':
+17 silly get      [ '__cfduid=d052328ef8d706073c46d7cb3950055121574878097; expires=Fri, 27-Dec-19 18:08:17 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+17 silly get     'cf-ray': '53c60bed6bf3e6d4-EWR',
+17 silly get     'cf-cache-status': 'REVALIDATED',
+17 silly get     'cache-control': 'max-age=300',
+17 silly get     etag: '"b23697dc37ad191bdd0d92e049de73a7"',
+17 silly get     'last-modified': 'Fri, 18 Oct 2019 03:26:41 GMT',
+17 silly get     vary: 'accept-encoding, accept',
+17 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+17 silly get     server: 'cloudflare' } ]
+18 verbose etag https://registry.npmjs.org/react-native-ionicons from cache
+19 verbose get saving react-native-ionicons to /home/olivia/.npm/registry.npmjs.org/react-native-ionicons/.cache.json
+20 verbose exit [ 0, true ]
+21 verbose stack Error: write EPIPE
+21 verbose stack     at _errnoException (util.js:1022:11)
+21 verbose stack     at WriteWrap.afterWrite [as oncomplete] (net.js:880:14)
+22 verbose cwd /home/olivia/Desktop/AR
+23 error Linux 5.0.0-36-generic
+24 error argv "/usr/bin/node" "/usr/bin/npm" "view" "--json" "react-native-ionicons" "description" "dist-tags.latest" "homepage"
+25 error node v8.10.0
+26 error npm  v3.5.2
+27 error code EPIPE
+28 error errno EPIPE
+29 error syscall write
+30 error write EPIPE
+31 error If you need help, you may report this error at:
+31 error     <https://github.com/npm/npm/issues>
+32 verbose exit [ 1, true ]
