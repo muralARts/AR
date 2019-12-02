@@ -1,17 +1,12 @@
 import Firebase from 'firebase'
-import {config} from './firebaseConfig'
+import {db, config} from '../../firebase/firebaseConfig'
 import {getArtwork, getCoordinates} from '../../firebase/dbTestComponent'
 
 
-let app = Firebase.initializeApp(config);
-export const db = app.database();
+// let app = Firebase.initializeApp(config);
+// export const db = app.database();
 
 var exhibitsRef = db.ref("exhibits")
-
-
-
-
-
 
 const initialState = {
       artwork: [],
@@ -26,11 +21,11 @@ const GET_SINGLE_EXHIBIT = 'GET_SINGLE_EXHIBIT'
 //create helper function in dbTestComponent that will be called into thunk creator
 
 //action creators
-const getSingleExhibit = (artwork, coordinates) => { //both are arrays
+const getSingleExhibit = (artwork, coordinates) => ({ //both are arrays
       type: GET_SINGLE_EXHIBIT,
       artwork,
       coordinates
-}
+})
 
 //thunk creators
 export const gettingSingleExhibit = (exhibitName) => {
@@ -45,7 +40,7 @@ export const gettingSingleExhibit = (exhibitName) => {
 
 
 //reducer
-export const singleExhibitReducer = (singleExhibit=initalState, action) => {
+export const singleExhibitReducer = (singleExhibit=initialState, action) => {
       switch (action.type) {
             case GET_SINGLE_EXHIBIT:
                   return {...singleExhibit, artwork: action.artwork, coordinates: action.coordinates}

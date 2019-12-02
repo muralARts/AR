@@ -12,8 +12,9 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-
-import {Borough, MapScreen, Home, Explorer, Exhibitions, Header, FooterNav} from './js/components/Index'
+import {Provider} from 'react-redux'
+import store from './store/store'
+import {Borough, MapScreen, Home, Explorer, ConnectExhibitions, Header, FooterNav} from './js/components/Index'
 
 
 /*
@@ -57,7 +58,7 @@ export default class App extends Component {
     case EXPLORER:
       return <Explorer />
     case EXHIBITIONS:
-      return <Exhibitions navigate={this.onPress} />
+      return <ConnectExhibitions navigate={this.onPress} />
       case BOROUGH:
       return <Borough />
     default:
@@ -74,6 +75,7 @@ export default class App extends Component {
   render(){
     let currentView = this.viewMatcher()
     return (
+      <Provider store={store}>
       <View style={localStyles.container}>
          <View style={localStyles.header}>
           <Header/>
@@ -87,6 +89,7 @@ export default class App extends Component {
           <FooterNav onPressFunc={this.onPress}/>
         </View>
       </View>
+      </Provider>
   )
 }
 }

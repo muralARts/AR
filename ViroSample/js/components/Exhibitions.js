@@ -8,10 +8,10 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import {gettingAllExhibits} from '../../store/reducers/allExhibits'
-import {gettingSingleExhibit} from '../..store/reducers/singleExhibit'
+import {gettingSingleExhibit} from '../../store/reducers/singleExhibit'
 
 
-export default class Exhibitions extends Component {
+class Exhibitions extends Component {
 
   componentDidMount() {
     this.props.gettingAllExhibits()
@@ -23,8 +23,9 @@ export default class Exhibitions extends Component {
   }
 
   render() {
-    const allExhibits = this.props.allExhibits
-    if (allExhibits.length) {
+    //remove if statement and see if it works since we're mapping below in return stmt
+    if (this.props.allExhibits) {
+      const allExhibits = this.props.allExhibits
 
       return (
         <View style={localStyles.Container}>
@@ -41,10 +42,11 @@ export default class Exhibitions extends Component {
       )
 
     } else {
-      return <View></View>
+      return <View>HAYYYYLLLLPPPP</View>
     }
   }
 }
+
 
 const localStyles = StyleSheet.create({
   Container: {
@@ -72,6 +74,6 @@ const mapDispatchToProps = (dispatch) => ({
   gettingSingleExhibit: (exhibitName) => dispatch(gettingSingleExhibit(exhibitName))
 })
 
-connect(mapStateToProps, mapDispatchToProps)(Exhibitions)
+const ConnectExhibitions = connect(mapStateToProps, mapDispatchToProps)(Exhibitions)
 
-module.exports = Exhibitions;
+export default ConnectExhibitions;

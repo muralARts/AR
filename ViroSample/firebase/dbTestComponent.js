@@ -1,17 +1,15 @@
 // import React from 'react'
 import Firebase from 'firebase'
-import {config} from './firebaseConfig'
+import {db, config} from '../firebase/firebaseConfig'
 
 
-let app = Firebase.initializeApp(config);
-export const db = app.database();
+// let app = Firebase.initializeApp(config);
+// export const db = app.database();
 
-var exhibitsRef = db.ref("exhibits")
+let exhibitsRef = db.ref("exhibits")
 
-
-// 
-
-var biggieExhibitsRef = db.ref("exhibits") //when we add more collections, will we have to add exhibits/fullstack, exhibits/washingtonSquarePark
+//
+let biggieExhibitsRef = db.ref("exhibits") //when we add more collections, will we have to add exhibits/fullstack, exhibits/washingtonSquarePark
 
 // exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
 //     var newPost = snapshot.val()
@@ -20,56 +18,50 @@ var biggieExhibitsRef = db.ref("exhibits") //when we add more collections, will 
 //     var values = Object.values(newPost)
 //     console.log('KEYS', keys) //gives 6 keys as an ARRAY
 //     console.log('VALUES', values) //gives us all values at each key
-   
+
 //     console.log(newPost, "newpost")// gives all keys (6) as an OBJECT
-    
+
 
 // })
 
 exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
-            var newPost = snapshot.val()
-            console.log("fullstack menuImage" + newPost.borough) //returns object object
-            var keys = Object.keys(newPost)
-            var values = Object.values(newPost)
-            console.log('KEYS', keys) //gives artwork, details
-            console.log('VALUES', values[0]) //gives us paintings
-           
-            console.log(newPost, "newpost")// full object
-            
+      let newPost = snapshot.val()
+      console.log("fullstack menuImage" + newPost.borough) //returns object object
+      let keys = Object.keys(newPost)
+      let values = Object.values(newPost)
+      console.log('KEYS', keys) //gives artwork, details
+      console.log('VALUES', values[0]) //gives us paintings
+      console.log(newPost, "newpost")// full object
+})
 
-        })
-    
 export const getArtwork = () => {
       exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
-            var exhibit = snapshot.val()
-            var keys = Object.keys(exhibit)
-            var values = Object.values(exhibit)
+            let exhibit = snapshot.val()
+            let keys = Object.keys(exhibit)
+            let values = Object.values(exhibit)
             console.log('VALUES', values[0]) //gives us full paintings
             const paintingObjs = values[0]
-            
             return paintingObjs //returns object
 })
 }
 
 export const getCoordinates = () => {
-
-      exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
-            var exhibit = snapshot.val()
-            var values = Object.values(exhibit)
-            const coordinates = values[1].coordinates
-            return coordinates
-       
-})
+  exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
+      let exhibit = snapshot.val()
+      let values = Object.values(exhibit)
+      const coordinates = values[1].coordinates
+      return coordinates
+  })
 }
 
-//gives all images 
+//gives all images
 export const getArtworkImages = () => {
       exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
-      var exhibit = snapshot.val()
-      var keys = Object.keys(exhibit)
-      var values = Object.values(exhibit)
+      let exhibit = snapshot.val()
+      let keys = Object.keys(exhibit)
+      let values = Object.values(exhibit)
       const paintingObjs = values[0]
-      var result = Object.keys(paintingObjs).map(function(key) {
+      let result = Object.keys(paintingObjs).map(function(key) {
         return [Number(key), paintingObjs[key]];
       });
       const arrayOfArt = []
@@ -83,26 +75,31 @@ export const getArtworkImages = () => {
 
 export const getNavImage = () => {
       exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
-      var exhibit = snapshot.val()
-      var keys = Object.keys(exhibit)
-      var values = Object.values(exhibit)
-      const navImage = values[1].navImage
-      return navImage
+      let exhibit = snapshot.val()
+      let keys = Object.keys(exhibit)
+      let values = Object.values(exhibit)
+      let navImageArr=[]
+      for(let i = 0; i < values.length; i++){
+            let innerVal = Object.values(values[1])
+            navImageArr.push(innerVal[2])
+      }
+      return navImageArr
 })
 }
 
 export const getExhibitName = () => {
       exhibitsRef.on("value", function(snapshot, prevChildKey) {
-            var exhibit = snapshot.val()
-            var key = Object.keys(exhibit)
-            const exhibitName = key
-            console.log(exhibitName)
-            return exhibitName
+            let exhibit = snapshot.val()
+            let key = Object.keys(exhibit)
+            let exhibitNameArr = []
+            for (let i = 0; i < key.length; i++) {
+                  name = key[i]
+                  exhibitNameArr.push(name)
+            }
+
+            return exhibitNameArr //returns fullstack
 })
 }
-
-
-
 
 // exhibitsRef.on("child_added", function(snapshot, prevChildKey) {
       //     var newPost = snapshot.val()
@@ -111,5 +108,5 @@ export const getExhibitName = () => {
       //     console.log("frida" + newPost.frida)//returns object object
       //     console.log("coordinates " + newPost.coordinates) //gave us array
       //     console.log('menuimage' + newPost.menuImage) //gave us png
-      
+
       // })
