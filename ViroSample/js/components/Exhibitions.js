@@ -22,8 +22,8 @@ class Exhibitions extends Component {
     //console.error('this.props: ',this.props)
   }
 
-  selectExhibitAndRedirect(exhibitName) {
-    this.props.gettingSingleExhibit(exhibitName)
+  async selectExhibitAndRedirect(exhibitName) {
+    await this.props.gettingSingleExhibit(exhibitName)
     this.props.navigate('EXPLORER')
     // console.error('thispropsexhibit', this.props.exhibit)
   }
