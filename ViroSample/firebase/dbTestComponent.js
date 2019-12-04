@@ -97,13 +97,13 @@ export const exhibitView = async(exhibitName) => {
    const exhibits = Object.keys(instance)
    let selectedExhibit = exhibits.filter(exhibit => exhibit === exhibitName)
      let paintings = instance[selectedExhibit].artwork
-
      let paintingNames= Object.keys(paintings)
      for (let i = 0; i < paintingNames.length; i++) {
          let selectedPainting = paintings[paintingNames[i]].image
          let selectedMarker = paintings[paintingNames[i]].imageMarker
          singleExhibitData[i] = {target: selectedMarker, source: selectedPainting}
      }
+    //  console.error('singleEXHIB', singleExhibitData)
       return singleExhibitData
  } catch(error) {
      console.error(error)

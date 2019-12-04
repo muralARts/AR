@@ -39,8 +39,7 @@ class Exhibitions extends Component {
             const {exhibitName, navImage} = exhibit
             return (
               <View key={exhibitName}>
-                <TouchableOpacity onPress={(exhibitName)=>this.selectExhibitAndRedirect(exhibi
-                )} underlayColor={'#d3d3d3'}>
+                <TouchableOpacity onPress={(exhibitName)=>this.selectExhibitAndRedirect(exhibitName)} underlayColor={'#d3d3d3'}>
                   <View>
                   <Image source={{uri: navImage}} style={{width: 150, height: 150}}/>
                   <Text>{exhibitName}</Text>
