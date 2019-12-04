@@ -23,7 +23,7 @@ export const getSingleExhibit = (singleExhibitData) => ({ //both are arrays
 export const gettingSingleExhibit = (exhibitName) => {
   return async (dispatch) => {
         const singleExhibitData = await exhibitView(exhibitName)
-        // console.error('singleExhibitData ', singleExhibitData)
+        console.error(singleExhibitData)
         dispatch(getSingleExhibit(singleExhibitData))
   }
 }
@@ -32,7 +32,9 @@ export const gettingSingleExhibit = (exhibitName) => {
 export const singleExhibitReducer = (state=initialState, action) => {
     switch (action.type) {
         case GET_SINGLE_EXHIBIT:
-            return {...state, exhibit: action.singleExhibitData}
+          // console.error(action)
+            // return {...state, exhibit: action.singleExhibitData}
+            return {exhibit: action.singleExhibitData}
             default:
                 return state
       }

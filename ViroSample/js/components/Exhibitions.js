@@ -25,6 +25,7 @@ class Exhibitions extends Component {
   selectExhibitAndRedirect(exhibitName) {
     this.props.gettingSingleExhibit(exhibitName)
     this.props.navigate('EXPLORER')
+    // console.error('thispropsexhibit', this.props.exhibit)
   }
 
   render() {
@@ -38,6 +39,7 @@ class Exhibitions extends Component {
           {allExhibits.map(exhibit => {
             const {exhibitName, navImage} = exhibit
             const exhibitNameStr = exhibitName.toString()
+
             return (
               <View key={exhibitName}>
                 <TouchableOpacity onPress={()=>this.selectExhibitAndRedirect(exhibitNameStr)} underlayColor={'#d3d3d3'}>

@@ -95,11 +95,13 @@ export const exhibitView = async(exhibitName) => {
    let singleExhibitData = []
    const instance = snapshot.val()
    const exhibits = Object.keys(instance)
-   //console.error('i like pie', exhibitName)
+  //  console.error('i like pie', exhibitName)
    let selectedExhibit = exhibits.filter(exhibit =>
   //console.error('exhibit:', exhibit, 'exhibitName: ', exhibitName)
     exhibit === exhibitName)
-     let paintings = instance[selectedExhibit].artwork
+    //console.error('selectedExhibit', selectedExhibit[0])
+     let paintings = instance[selectedExhibit[0]].artwork
+     //console.error(paintings)
      let paintingNames= Object.keys(paintings)
      for (let i = 0; i < paintingNames.length; i++) {
          let selectedPainting = paintings[paintingNames[i]].image
