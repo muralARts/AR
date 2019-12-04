@@ -1,5 +1,6 @@
 'use strict'
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import {StyleSheet} from 'react-native'
 import {
   ViroARScene,
@@ -105,4 +106,14 @@ var styles = StyleSheet.create({
     flex: .5
   }
 });
-module.exports = ARScene
+//module.exports = ARScene
+
+const mapStateToProps = (state) => {
+  return {
+    exhibit: state.singleExhibitReducer.exhibit
+  }
+}
+
+const ConnectedARScene = connect(mapStateToProps, null)(ARScene)
+
+export default ConnectedARScene

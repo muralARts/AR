@@ -6,7 +6,8 @@ import {
   ViroARSceneNavigator,
 } from 'react-viro'
 
-import ARScene from './ARScene'
+// import ARScene from './ARScene'
+import ConnectedARScene from './ARScene'
 
 var sharedProps = {
   apiKey:"API_KEY_HERE",
@@ -34,7 +35,7 @@ constructor(){
   getARNavigator() {
     return (
       <ViroARSceneNavigator {...this.state.sharedProps}
-        initialScene={{scene: ARScene}} />
+        initialScene={{scene: ConnectedARScene}} />
     );
   }
 
