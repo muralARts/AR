@@ -12,16 +12,6 @@ import {
   ViroNode,
 } from 'react-viro'
 
-const dummyData = [{
-  target:{
-  orientation: "Up",
-  physicalWidth: "0.1",
-  targetImage: "PLACEHOLDER"
-  },
-  source:{
-    imageMarker: ''
-  }
-}]
 
 export class ARScene extends Component {
 
@@ -58,46 +48,30 @@ export class ARScene extends Component {
   }
 
   getARScene() {
+    const exhibitData = this.props.exhibit
+​
     return (
       <ViroNode>
-        <ViroARImageMarker target={'strive'}
-         onAnchorFound={this.onAnchorFound}>
-          <ViroImage
-            height={0.20}
-            width={0.15}
-            position={[0,0,0]}
-            rotation={[-90,0,0]}
-            style={styles.image}
-            source={require('../res/collection/obama.png')}
-          />
-        </ViroARImageMarker>
-        <ViroARImageMarker target={'strive'}
-         onAnchorFound={this.onAnchorFound}>
-          <ViroImage
-            height={0.20}
-            width={0.15}
-            position={[0,0,0]}
-            rotation={[-90,0,0]}
-            style={styles.image}
-            source={require('../res/collection/obama.png')}
-          />
-        </ViroARImageMarker>
+        {exhibitData.map(exhibit=>{
+          return (
+            <ViroARImageMarker target={exhibit.target.targetImage}
+            onAnchorFound={this.onAnchorFound}>
+              <ViroImage
+                height={0.20}
+                width={0.15}
+                position={[0,0,0]}
+                rotation={[-90,0,0]}
+                style={styles.image}
+                source={{uri: exhibit.source}}
+              />
+            </ViroARImageMarker>
+          )
+        })}
       </ViroNode>
     )
   }
-    createTargets(){
 
-     ViroARTrackingTargets.createTargets({
-        'strive': {
-          source: require('../res/targets/strive.png'),
-          orientation: "Up",
-          physicalWidth: 0.1
-        },
-       });
-      }
   render() {
-   this.createTargets()
-   //if (this.props.exhibit.length) {console.error('props ', this.props)}
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized} >
         { this.state.isTracking ? this.getNoTrackingUI() : this.getARScene() }
@@ -105,6 +79,39 @@ export class ARScene extends Component {
     );
   }
 }
+
+ViroARTrackingTargets.createTargets({
+  'strive.png': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'strive.png': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'strive.png': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'strive.png': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'strive.png': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'strive.png': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+ })
 
 // ViroARTrackingTargets.createTargets({
 //   'strive': {
@@ -143,9 +150,7 @@ var styles = StyleSheet.create({
 //module.exports = ARScene
 
 const mapStateToProps = (state) => {
-  console.error('state:', state)
   return {
-
     exhibit: state.singleExhibitReducer.exhibit
   }
 }
