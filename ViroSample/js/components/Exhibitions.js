@@ -3,7 +3,7 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight,
+  TouchableOpacity,
   StyleSheet
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -12,60 +12,73 @@ import {gettingSingleExhibit} from '../../store/reducers/singleExhibit'
 
 
 class Exhibitions extends Component {
+  constructor () {
+    super ()
+    this.selectExhibitAndRedirect= this.selectExhibitAndRedirect.bind(this)
+  }
 
   componentDidMount() {
     this.props.gettingAllExhibits()
+    //console.error('this.props: ',this.props)
   }
 
   selectExhibitAndRedirect(exhibitName) {
     this.props.gettingSingleExhibit(exhibitName)
-    this.props.navigate('MAP')
+    this.props.navigate('EXPLORER')
   }
 
   render() {
     //remove if statement and see if it works since we're mapping below in return stmt
-    if (this.props.allExhibits) {
-      const allExhibits = this.props.allExhibits
+    if (this.props.exhibits) {
+      //console.error('this.props: ',this.props)
+      const allExhibits = this.props.exhibits
 
       return (
-        <View style={localStyles.Container}>
+        <View>
           {allExhibits.map(exhibit => {
             const {exhibitName, navImage} = exhibit
             return (
-              <TouchableHighlight style={localStyles.Exhibit} onPress={this.selectExhibitAndRedirect({exhibitName})} underlayColor={'#d3d3d3'}>
-                <Image source={navImage} style={localStyles.ExhibitImage} />
-                <Text style={localStyles.ExhibitName} >{exhibitName}</Text>
-              </TouchableHighlight>
+              <View key={exhibitName}>
+                <TouchableOpacity onPress={(exhibitName)=>this.selectExhibitAndRedirect(exhibi
+                )} underlayColor={'#d3d3d3'}>
+                  <View>
+                  <Image source={{uri: navImage}} style={{width: 150, height: 150}}/>
+                  <Text>{exhibitName}</Text>
+                  <Text>Location: 25th Floor</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             )
           })}
         </View>
       )
 
     } else {
-      return <View>HAYYYYLLLLPPPP</View>
+      return <View><Text>HAYYYYLLLLPPPP</Text></View>
     }
   }
 }
 
+//  onPress={this.selectExhibitAndRedirect({exhibitName})}
+// const localStyles = StyleSheet.create({
+//   Container: {
 
-const localStyles = StyleSheet.create({
-  Container: {
+//   },
+//   Exhibit: {
 
-  },
-  Exhibit: {
+//   },
+//   ExhibitImage: {
 
-  },
-  ExhibitImage: {
+//   },
+//   ExhibitName: {
 
-  },
-  ExhibitName: {
-
-  }
-})
+//   }
+// })
 
 const mapStateToProps = (state) => {
   return {
-    allExhibits: state.allExhibitsReducer.exhibits
+    exhibits: state.allExhibitsReducer.exhibits,
+    exhibit: state.singleExhibitReducer.exhibit
   }
 }
 

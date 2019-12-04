@@ -5,7 +5,6 @@ import {singleExhibitReducer} from '../reducers/singleExhibit'
 const rootReducer = combineReducers({
       allExhibitsReducer,
       singleExhibitReducer
-
 })
 
 export default rootReducer

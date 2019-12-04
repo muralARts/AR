@@ -50,14 +50,14 @@ export class ARScene extends Component {
       <ViroNode>
         <ViroARImageMarker target={'strive'}
          onAnchorFound={this.onAnchorFound}>
-                  <ViroImage
-                    height={0.20}
-                    width={0.15}
-                    position={[0,0,0]}
-                    rotation={[-90,0,0]}
-                    style={styles.image}
-                    source={require('../res/collection/obama.png')}
-                  />
+          <ViroImage
+            height={0.20}
+            width={0.15}
+            position={[0,0,0]}
+            rotation={[-90,0,0]}
+            style={styles.image}
+            source={require('../res/collection/obama.png')}
+          />
         </ViroARImageMarker>
       </ViroNode>
     )

@@ -1,16 +1,9 @@
-import Firebase from 'firebase'
-import {db, config} from '../../firebase/firebaseConfig'
-import {getArtwork, getCoordinates} from '../../firebase/dbTestComponent'
+import { exhibitView } from '../../firebase/dbTestComponent'
 
 
-// let app = Firebase.initializeApp(config);
-// export const db = app.database();
-
-var exhibitsRef = db.ref("exhibits")
 
 const initialState = {
-      artwork: [],
-      coordinates: []
+      exhibit: []
       //may add all details (include navImage and borough) later
 }
 
@@ -21,33 +14,26 @@ const GET_SINGLE_EXHIBIT = 'GET_SINGLE_EXHIBIT'
 //create helper function in dbTestComponent that will be called into thunk creator
 
 //action creators
-const getSingleExhibit = (artwork, coordinates) => ({ //both are arrays
+export const getSingleExhibit = (singleExhibitData) => ({ //both are arrays
       type: GET_SINGLE_EXHIBIT,
-      artwork,
-      coordinates
+      singleExhibitData
 })
 
 //thunk creators
 export const gettingSingleExhibit = (exhibitName) => {
-      return async (dispatch) => {
-            //artworks and coordinates
-            const artworks = getArtwork() //gives us all artwork info
-            const coordinates = getCoordinates() //gives us the coordinates (fullstack)
-            dispatch(getSingleExhibit(artworks, coordinates))
-      }
+  return async (dispatch) => {
+        const singleExhibitData = await exhibitView(exhibitName)
+        // console.error('singleExhibitData ', singleExhibitData)
+        dispatch(getSingleExhibit(singleExhibitData))
+  }
 }
 
-
-
 //reducer
-export const singleExhibitReducer = (singleExhibit=initialState, action) => {
-      switch (action.type) {
-            case GET_SINGLE_EXHIBIT:
-                  return {...singleExhibit, artwork: action.artwork, coordinates: action.coordinates}
+export const singleExhibitReducer = (state=initialState, action) => {
+    switch (action.type) {
+        case GET_SINGLE_EXHIBIT:
+            return {...state, exhibit: action.singleExhibitData}
             default:
-                  return singleExhibit
+                return state
       }
-
-      //get artwork
-      //get coordinates
 }

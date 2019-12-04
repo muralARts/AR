@@ -30,7 +30,7 @@ export default class Home extends Component {
           <Text style={localStyles.catchphraseText}>
           re imagining the space we’re in with unbound creativity
           </Text>
-          <ImageBackground source={require('../res/collection/biggie2.jpg')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
+          <ImageBackground source={require('../res/collection/biggie3.png')} style={localStyles.backgroundImage} style={{width: '100%', height: '100%'}} style = {localStyles.backdrop}/>
 
           <TouchableHighlight style={localStyles.buttons} onPress={()=>onPress('EXHIBITIONS')} underlayColor={'#d3d3d3'}>
             <Text style={localStyles.buttonText} > Explore Exhibitions                >

@@ -1,5 +1,4 @@
-import { statement } from "@babel/template"
-import { getNavImage, getExhibitName } from '../../firebase/dbTestComponent'
+import { exhibitionsView} from '../../firebase/dbTestComponent'
 
 const initialState = {
       exhibits: [],
@@ -10,29 +9,31 @@ const GET_ALL_EXHIBITS = 'GET_ALL_EXHIBITS'
 
 
 //action creator
-const getAllExhibits = (navImage, exhibitName) => ({
+export const getAllExhibits = (exhibitData) => ({
       type: GET_ALL_EXHIBITS,
-      // artworkImage,
-      navImage,
-      exhibitName
+      exhibitData
 })
 
 //thunk creator
 export const gettingAllExhibits = () => {
   return async (dispatch) => {
-    const exhibitName = getExhibitName() //[fullstack]
-    const navImage = getNavImage() //[image]
-    dispatch(getAllExhibits(navImage, exhibitName))
-  }
+    //console.error('exhibitionsView', exhibitionsView())
+    const payload = await exhibitionsView()
+    //console.error('payload', payload)
+    dispatch(getAllExhibits(payload)
+    // try passing in the full equation instead of calling exhibitionsView()
+    //where is the await??
+    //should we throw in a try catch and console.error??
+  )}
 }
 
-
 //reducer
-export const allExhibitsReducer = (allExhibits=initialState, action) => {
+export const allExhibitsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_EXHIBITS:
-      return allExhibits = {...allExhibits, navImage: action.navImage, exhibitName: action.exhibitName}
+      //console.error('action.exhibitData: ', action.exhibitData)
+      return {...state, exhibits: action.exhibitData}
     default:
-      return allExhibits
+      return state
   }
 }
