@@ -37,10 +37,10 @@ class Exhibitions extends Component {
         <View>
           {allExhibits.map(exhibit => {
             const {exhibitName, navImage} = exhibit
+            const exhibitNameStr = exhibitName.toString()
             return (
               <View key={exhibitName}>
-                <TouchableOpacity onPress={(exhibitName)=>this.selectExhibitAndRedirect(exhibi
-                )} underlayColor={'#d3d3d3'}>
+                <TouchableOpacity onPress={()=>this.selectExhibitAndRedirect(exhibitNameStr)} underlayColor={'#d3d3d3'}>
                   <View>
                   <Image source={{uri: navImage}} style={{width: 150, height: 150}}/>
                   <Text>{exhibitName}</Text>
