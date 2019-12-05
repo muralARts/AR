@@ -71,7 +71,7 @@ export class ARScene extends Component {
             source={require('../res/collection/hartley.png')}
           />
         </ViroARImageMarker>
-        <ViroARImageMarker target={'screen'}
+        <ViroARImageMarker target={'staff'}
          onAnchorFound={this.onAnchorFound}>
           <ViroImage
             height={0.20}
@@ -85,23 +85,23 @@ export class ARScene extends Component {
         <ViroARImageMarker target={'GH'}
          onAnchorFound={this.onAnchorFound}>
           <ViroImage
-            height={0.20}
-            width={0.15}
+            height={0.5}
+            width={0.4}
             position={[0,0,0]}
             rotation={[-90,0,0]}
             style={styles.image}
             source={require('../res/collection/grace.jpeg')}
           />
         </ViroARImageMarker>
-        <ViroARImageMarker target={'PLACEHOLDER'}
+        <ViroARImageMarker target={'trust'}
          onAnchorFound={this.onAnchorFound}>
           <ViroImage
             height={0.20}
             width={0.15}
             position={[0,0,0]}
-            rotation={[-90,0,0]}
+            rotation={[-90,-90,0]}
             style={styles.image}
-            source={require('../res/collection/PLACEHOLDER.png')}
+            source={require('../res/collection/gems.jpg')}
           />
         </ViroARImageMarker>
       </ViroNode>
@@ -132,13 +132,13 @@ ViroARTrackingTargets.createTargets({
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'screen':{
-    source: require('../res/targets/screen.jpg'),
+  'staff':{
+    source: require('../res/targets/staff.png'),
     orientation: "Up",
     physicalWidth: 0.1
   },
   'trust':{
-    source: require('../res/targets/trust.jpg'),
+    source: require('../res/targets/trust.png'),
     orientation: "Up",
     physicalWidth: 0.1
   }

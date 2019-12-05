@@ -1,6 +1,6 @@
 {
   "exhibits": {
-    "fullstack": {
+    "Modern Classics": {
       "details": {
       "navImage": "obama.png",
       "coordinates": [-74.009, 40.705],
@@ -38,9 +38,26 @@
           "width": "0.15"
         },
         "imageMarker": {
-          "targetImage": "dontBe",
+          "targetImage": "fullstack",
           "orientation": "Up",
           "physicalWidth": "0.1"
+        }
+      },
+      "rbg": {
+        "attributes": {
+          "artist": "Joel Tesch",
+          "description": "Portrait of Supreme Court Justice Ruth Bader Ginsburg as the Notorious RBG",
+          "year": 2018
+        },
+        "dimensions": {
+          "height": "0.2",
+          "width": "0.15"
+        },
+        "image": "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2Frosetta.jpeg?alt=media&token=3048453b-eacb-46f0-ad8f-fecf4223b00d",
+        "imageMarker": {
+          "orientation": "Up",
+          "physicalWidth": "0.1",
+          "targetImage": "staff.jpg"
         }
       },
       "biggie": {
@@ -60,9 +77,24 @@
           "orientation": "Up",
           "physicalWidth": "0.1"
         }
+      },
+      "Michelle": {
+        "attributes": {
+          "artist": "Amy Sherald",
+          "description": "Portrait of former first lady Michelle Obama from the National Potrait Gallery",
+          "title": "Official Portrait of First Lady Michelle Obama",
+          "year": 2018
+        },
+        "dimensions": {
+          "height": "0.2",
+          "width": "0.15"
+        },
+        "image": "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2FMichelle.png?alt=media&token=240a7e4e-1f90-4cf9-9994-a052e94476fb",
+        "imageMarker": {
+          "orientation": "Up",
+          "physicalWidth": "0.1",
+          "targetImage": "trust.png"
+        }
       }
     }
-    }
-  }
-}
-
+  }}}

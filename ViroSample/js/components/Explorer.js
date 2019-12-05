@@ -7,7 +7,7 @@ import {
 } from 'react-viro'
 
 // import ARScene from './ARScene'
-import ConnectedARScene from './ARScene'
+import ConnectedARScene from './ARSceneDemo'
 
 var sharedProps = {
   apiKey:"API_KEY_HERE",
