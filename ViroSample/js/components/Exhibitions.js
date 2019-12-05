@@ -4,7 +4,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import {gettingAllExhibits} from '../../store/reducers/allExhibits'
@@ -35,23 +36,25 @@ class Exhibitions extends Component {
       const allExhibits = this.props.exhibits
 
       return (
-        <View>
+        <View style={localStyles.container}>
+          <ScrollView>
           {allExhibits.map(exhibit => {
             const {exhibitName, navImage} = exhibit
             const exhibitNameStr = exhibitName.toString()
 
             return (
-              <View key={exhibitName}>
+              <View style={localStyles.exhibit} key={exhibitName}>
                 <TouchableOpacity onPress={()=>this.selectExhibitAndRedirect(exhibitNameStr)} underlayColor={'#d3d3d3'}>
-                  <View style={localStyles.Container}>
-                  <Image source={{uri: navImage}} style={{width: 150, height: 150}}/>
-                  <Text>{exhibitName}</Text>
-                  <Text>Location: 25th Floor</Text>
+                  <View >
+                  <Image source={{uri: navImage}} style={localStyles.exhibitImage}/>
+                  <Text style={localStyles.exhibitName}>{exhibitName}</Text>
+                  <Text style={localStyles.locationName}>Location: 25th Floor</Text>
                   </View>
                 </TouchableOpacity>
               </View>
             )
           })}
+          </ScrollView>
         </View>
       )
 
@@ -62,19 +65,46 @@ class Exhibitions extends Component {
 }
 
 //  onPress={this.selectExhibitAndRedirect({exhibitName})}
+
 const localStyles = StyleSheet.create({
-  Container: {
+  container: {
     backgroundColor: '#fff',
     color: '#000000',
+    width: '100%',
+    height: '100%'
   },
-  Exhibit: {
-
+  exhibit: {
+    height: 180,
+    width: '100%',
+    //paddingBottom: 20,
+    marginBottom: 30
   },
-  ExhibitImage: {
-
+  exhibitImage: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    width: '100%',
+    height: 200,
+    //alignSelf: 'stretch'
+    // paddingTop: 10,
+    // paddingBottom: 10,
+    // resizeMode: 'cover'
   },
-  ExhibitName: {
-
+  exhibitName: {
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    fontSize: 21,
+    color: '#fff',
+    fontFamily: 'Helvetica Neue',
+    position: 'absolute',
+    top: 8,
+    left: 16,
+    justifyContent: 'center'
+  },
+  locationName:{
+    position: 'absolute',
+    top: 40,
+    left: 16,
+    color: '#fff'
   }
 })
 
