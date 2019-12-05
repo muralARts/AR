@@ -43,7 +43,7 @@ class Exhibitions extends Component {
             return (
               <View key={exhibitName}>
                 <TouchableOpacity onPress={()=>this.selectExhibitAndRedirect(exhibitNameStr)} underlayColor={'#d3d3d3'}>
-                  <View>
+                  <View style={localStyles.Container}>
                   <Image source={{uri: navImage}} style={{width: 150, height: 150}}/>
                   <Text>{exhibitName}</Text>
                   <Text>Location: 25th Floor</Text>
@@ -62,20 +62,21 @@ class Exhibitions extends Component {
 }
 
 //  onPress={this.selectExhibitAndRedirect({exhibitName})}
-// const localStyles = StyleSheet.create({
-//   Container: {
+const localStyles = StyleSheet.create({
+  Container: {
+    backgroundColor: '#fff',
+    color: '#000000',
+  },
+  Exhibit: {
 
-//   },
-//   Exhibit: {
+  },
+  ExhibitImage: {
 
-//   },
-//   ExhibitImage: {
+  },
+  ExhibitName: {
 
-//   },
-//   ExhibitName: {
-
-//   }
-// })
+  }
+})
 
 const mapStateToProps = (state) => {
   return {

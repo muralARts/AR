@@ -28,8 +28,8 @@ import {
       orientation: "Up",
       physicalWidth: 0.1 // real world width in meters
     },
-    'red_wallTarget': {
-      source: require('./res/targets/red_wall.jpg'),
+    'fireTarget': {
+      source: require('./res/targets/fire.jpg'),
       orientation: "Up",
       physicalWidth: 0.1 // real world width in meters
     },

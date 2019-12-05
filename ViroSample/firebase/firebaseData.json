@@ -17,7 +17,7 @@
         "imageMarker" : {
           "orientation" : "Up",
           "physicalWidth" : "0.1",
-          "targetImage" : "redWall"
+          "targetImage" : "red_wall"
         }
       },
       "frida" : {

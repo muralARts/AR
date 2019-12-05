@@ -60,7 +60,7 @@ export class ARScene extends Component {
             source={require('../res/collection/obama.png')}
           />
         </ViroARImageMarker>
-        <ViroARImageMarker target={'redWall'}
+        <ViroARImageMarker target={'fire'}
          onAnchorFound={this.onAnchorFound}>
           <ViroImage
             height={0.20}
@@ -127,8 +127,8 @@ ViroARTrackingTargets.createTargets({
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'redWall':{
-    source: require('../res/targets/redWall.jpg'),
+  'fire':{
+    source: require('../res/targets/fire.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },

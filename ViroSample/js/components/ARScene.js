@@ -48,11 +48,10 @@ export class ARScene extends Component {
   }
 
   getARScene() {
-    const exhibitData = this.props.exhibit
-​
     return (
       <ViroNode>
-        {exhibitData.map(exhibit=>{
+        {this.props.exhibit.map(exhibit=>{
+          // console.error('exhibit.target.targetImage', exhibit.target.targetImage)
           return (
             <ViroARImageMarker target={exhibit.target.targetImage}
             onAnchorFound={this.onAnchorFound}>
@@ -81,18 +80,18 @@ export class ARScene extends Component {
 }
 
 ViroARTrackingTargets.createTargets({
-  'strive': {
-    source: require('../res/targets/strive.png'),
-    orientation: "Up",
-    physicalWidth: 0.1
-  },
   'GH':{
     source: require('../res/targets/GH.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'redWall':{
-    source: require('../res/targets/redWall.jpg'),
+  'strive': {
+    source: require('../res/targets/strive.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'fire':{
+    source: require('../res/targets/fire.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
@@ -103,6 +102,16 @@ ViroARTrackingTargets.createTargets({
   },
   'trust':{
     source: require('../res/targets/trust.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'dontbe':{
+    source: require('../res/targets/dontbe.png'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'fullstack':{
+    source: require('../res/targets/fullstack.png'),
     orientation: "Up",
     physicalWidth: 0.1
   }
