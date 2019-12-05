@@ -35,6 +35,7 @@ constructor(){
   getARNavigator() {
     return (
       <ViroARSceneNavigator {...this.state.sharedProps}
+      // <ViroARSceneNavigator {...this.state}
         initialScene={{scene: ConnectedARScene}} />
     );
   }

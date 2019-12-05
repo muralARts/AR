@@ -57,7 +57,7 @@ export class ARScene extends Component {
         {this.props.exhibit.map(exhibit=>{
           // console.error('exhibit.target.targetImage', exhibit.target.targetImage)
           return (
-            <ViroARImageMarker target={exhibit.target.targetImage}
+            <ViroARImageMarker key={exhibit.target.targetImage} target={exhibit.target.targetImage}
             onAnchorFound={this.onAnchorFound}>
               <ViroImage
                 height={0.20}
@@ -165,4 +165,5 @@ const mapStateToProps = (state) => {
 
 const ConnectedARScene = connect(mapStateToProps, null)(ARScene)
 
-export default ConnectedARScene
+// export default ConnectedARScene
+module.exports = ConnectedARScene
