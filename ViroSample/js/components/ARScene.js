@@ -81,36 +81,31 @@ export class ARScene extends Component {
 }
 
 ViroARTrackingTargets.createTargets({
-  'strive.png': {
+  'strive': {
     source: require('../res/targets/strive.png'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'strive.png': {
-    source: require('../res/targets/strive.png'),
+  'GH':{
+    source: require('../res/targets/GH.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'strive.png': {
-    source: require('../res/targets/strive.png'),
+  'redWall':{
+    source: require('../res/targets/redWall.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'strive.png': {
-    source: require('../res/targets/strive.png'),
+  'staff':{
+    source: require('../res/targets/staff.png'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'strive.png': {
-    source: require('../res/targets/strive.png'),
+  'trust':{
+    source: require('../res/targets/trust.png'),
     orientation: "Up",
     physicalWidth: 0.1
-  },
-  'strive.png': {
-    source: require('../res/targets/strive.png'),
-    orientation: "Up",
-    physicalWidth: 0.1
-  },
+  }
  })
 
 // ViroARTrackingTargets.createTargets({
