@@ -1,68 +1,157 @@
 {
-  "exhibits": {
-    "fullstack": {
-      "details": {
-      "navImage": "obama.png",
-      "coordinates": [-74.009, 40.705],
-      "borough": "Manhattan"
-      },
-      "artwork": {
-      "obama": {
-        "image": "obamaPic",
-        "attributes": {
-          "title": "President Barack Obama",
-          "artist": "Kehinde Wiley",
-          "year": 2018,
-          "description": "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident"
+"exhibits" : {
+  "fullstack" : {
+    "artwork" : {
+      "biggie" : {
+        "attributes" : {
+          "artist" : "Diddy",
+          "description" : "NOTORIOUS",
+          "title" : "Christopher Wallace",
+          "year" : 1996
         },
-        "dimensions": {
-          "height": "0.2",
-          "width": "0.15"
+        "dimensions" : {
+          "height" : "0.2",
+          "width" : "0.15"
         },
-        "imageMarker": {
-          "targetImage": "strive",
-          "orientation": "Up",
-          "physicalWidth": "0.1"
+        "image" : "biggiePic",
+        "imageMarker" : {
+          "orientation" : "Up",
+          "physicalWidth" : "0.1",
+          "targetImage" : "red_wall"
         }
       },
-      "frida": {
-        "image": "fridaPic",
-        "attributes": {
-        "title": "Frida",
-        "artist": "Diego Rivera",
-        "year": 1930,
-        "description": "unibrow"
-      },
-        "dimensions": {
-          "height": "0.2",
-          "width": "0.15"
+      "frida" : {
+        "attributes" : {
+          "artist" : "Diego Rivera",
+          "description" : "unibrow",
+          "title" : "Frida",
+          "year" : 1930
         },
-        "imageMarker": {
-          "targetImage": "dontBe",
-          "orientation": "Up",
-          "physicalWidth": "0.1"
+        "dimensions" : {
+          "height" : "0.2",
+          "width" : "0.15"
+        },
+        "image" : "fridaPic",
+        "imageMarker" : {
+          "orientation" : "Up",
+          "physicalWidth" : "0.1",
+          "targetImage" : "dontBe"
         }
       },
-      "biggie": {
-        "image": "biggiePic",
-        "attributes": {
-          "title": "Christopher Wallace",
-          "artist": "Diddy",
-          "year": 1996,
-          "description": "NOTORIOUS"
+      "obama" : {
+        "attributes" : {
+          "artist" : "Kehinde Wiley",
+          "description" : "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident",
+          "title" : "President Barack Obama",
+          "year" : 2018
         },
-        "dimensions": {
-          "height": "0.2",
-          "width": "0.15"
+        "dimensions" : {
+          "height" : "0.2",
+          "width" : "0.15"
         },
-        "imageMarker": {
-          "targetImage": "redWall",
-          "orientation": "Up",
-          "physicalWidth": "0.1"
+        "image" : "obamaPic",
+        "imageMarker" : {
+          "orientation" : "Up",
+          "physicalWidth" : "0.1",
+          "targetImage" : "strive"
         }
       }
+    },
+    "details" : {
+      "borough" : "Manhattan",
+      "coordinates" : [ -74.009, 40.705 ],
+      "navImage" : "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2Fbiggie.jpg?alt=media&token=1d50e4fb-77fd-4151-93b2-5435787305a4"
     }
+  },
+  "fullstack2" : {
+    "artwork" : {
+      "frank" : {
+        "attributes" : {
+          "artist" : "Kehinde Wiley",
+          "description" : "beautiful, national presidential portrait, amazing, comeback, #foreverourpresident",
+          "title" : "President Barack Obama",
+          "year" : 2018
+        },
+        "dimensions" : {
+          "height" : "0.2",
+          "width" : "0.15"
+        },
+        "image" : "obamaPic",
+        "imageMarker" : {
+          "orientation" : "Up",
+          "physicalWidth" : "0.1",
+          "targetImage" : "strive"
+        }
+      },
+      "linda" : {
+        "attributes" : {
+          "artist" : "Diego Rivera",
+          "description" : "unibrow",
+          "title" : "Frida",
+          "year" : 1930
+        },
+        "dimensions" : {
+          "height" : "0.2",
+          "width" : "0.15"
+        },
+        "image" : "fridaPic",
+        "imageMarker" : {
+          "orientation" : "Up",
+          "physicalWidth" : "0.1",
+          "targetImage" : "dontBe"
+        }
+      }
+    },
+    "details" : {
+      "borough" : "Manhattan",
+      "coordinates" : [ -74.009, 40.705 ],
+      "navImage" : "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2Fobama.png?alt=media&token=731d8f75-43cb-4406-9144-8e1e55926c7e"
+    }
+  },
+  "The Crown": {
+    "details": {
+    "navImage": "rosetta_stone_grey.jpeg",
+    "coordinates": [-74.009, 40.705],
+    "borough": "Manhattan"
+    },
+    "artwork": {
+    "obama": {
+      "image": "Rosetta Stone",
+      "attributes": {
+        "title": "Rosetta Stone",
+        "artist": "Unknown",
+        "year": "196 BC",
+        "description": "It bears three inscriptions: the top register in Ancient Egyptian hieroglyphs, the second in the Egyptian demotic script, and the third in Ancient Greek. The front surface is polished and the inscriptions lightly incised on it; the sides of the stone are smoothed, but the back is only roughly worked, presumably because this would have not been visible when it was erected."
+      },
+      "dimensions": {
+        "height": "0.2",
+        "width": "0.15"
+      },
+      "imageMarker": {
+        "targetImage": "strive",
+        "orientation": "Up",
+        "physicalWidth": "0.1"
+      }
+    },
+    "Girl with a Pearl": {
+      "image": "girl_with_pearl.png",
+      "attributes": {
+      "title": "girl with a pearl earring",
+      "artist": "Johannes Vermeer",
+      "year": 1930,
+      "description": "unibrow"
+    },
+      "dimensions": {
+        "height": "0.2",
+        "width": "0.15"
+      },
+      "imageMarker": {
+        "targetImage": "dontBe",
+        "orientation": "Up",
+        "physicalWidth": "0.1"
+      }
+      }
     }
   }
+  }
 }
-

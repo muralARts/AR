@@ -20,16 +20,16 @@ import {Borough, MapScreen, Home, Explorer, ConnectExhibitions, Header, FooterNa
 /*
  TODO: Insert your API key below
  */
-var sharedProps = {
+let sharedProps = {
   apiKey:"API_KEY_HERE",
 }
 
 // Sets the default scene you want for AR
-var InitialARScene = require('./js/components/Explorer');
+let InitialARScene = require('./js/components/Explorer');
 
 //default navigator
-var UNSET = "UNSET";
-var defaultNavigatorType = UNSET;
+let UNSET = "UNSET";
+let defaultNavigatorType = UNSET;
 
 // NAVIGATION HELPER VARIABLES
 const HOME = 'HOME'
@@ -73,6 +73,7 @@ export default class App extends Component {
   }
 
   render(){
+    console.disableYellowBox =  true
     let currentView = this.viewMatcher()
     return (
       <Provider store={store}>

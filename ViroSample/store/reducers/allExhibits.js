@@ -18,9 +18,9 @@ export const getAllExhibits = (exhibitData) => ({
 export const gettingAllExhibits = () => {
   return async (dispatch) => {
     //console.error('exhibitionsView', exhibitionsView())
-    const payload = await exhibitionsView()
+    const exhibitData = await exhibitionsView()
     //console.error('payload', payload)
-    dispatch(getAllExhibits(payload)
+    dispatch(getAllExhibits(exhibitData)
     // try passing in the full equation instead of calling exhibitionsView()
     //where is the await??
     //should we throw in a try catch and console.error??

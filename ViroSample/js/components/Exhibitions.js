@@ -22,9 +22,10 @@ class Exhibitions extends Component {
     //console.error('this.props: ',this.props)
   }
 
-  selectExhibitAndRedirect(exhibitName) {
-    this.props.gettingSingleExhibit(exhibitName)
+  async selectExhibitAndRedirect(exhibitName) {
+    await this.props.gettingSingleExhibit(exhibitName)
     this.props.navigate('EXPLORER')
+    // console.error('thispropsexhibit', this.props.exhibit)
   }
 
   render() {
@@ -38,10 +39,11 @@ class Exhibitions extends Component {
           {allExhibits.map(exhibit => {
             const {exhibitName, navImage} = exhibit
             const exhibitNameStr = exhibitName.toString()
+
             return (
               <View key={exhibitName}>
                 <TouchableOpacity onPress={()=>this.selectExhibitAndRedirect(exhibitNameStr)} underlayColor={'#d3d3d3'}>
-                  <View>
+                  <View style={localStyles.Container}>
                   <Image source={{uri: navImage}} style={{width: 150, height: 150}}/>
                   <Text>{exhibitName}</Text>
                   <Text>Location: 25th Floor</Text>
@@ -60,20 +62,21 @@ class Exhibitions extends Component {
 }
 
 //  onPress={this.selectExhibitAndRedirect({exhibitName})}
-// const localStyles = StyleSheet.create({
-//   Container: {
+const localStyles = StyleSheet.create({
+  Container: {
+    backgroundColor: '#fff',
+    color: '#000000',
+  },
+  Exhibit: {
 
-//   },
-//   Exhibit: {
+  },
+  ExhibitImage: {
 
-//   },
-//   ExhibitImage: {
+  },
+  ExhibitName: {
 
-//   },
-//   ExhibitName: {
-
-//   }
-// })
+  }
+})
 
 const mapStateToProps = (state) => {
   return {

@@ -12,18 +12,13 @@ import {
   ViroNode,
 } from 'react-viro'
 
-
 export class ARScene extends Component {
-  constructor(){
-    super()
-    this.state = {
-      isTracking: false,
-      initialized: false,
-      paused: false
-    }
-  this.onInitialized = this.onInitialized.bind(this)
-  this.onAnchorFound = this.onAnchorFound.bind(this)
-}
+
+ state = {
+    isTracking: false,
+    initialized: false,
+    paused: false
+  }
 
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
@@ -54,26 +49,64 @@ export class ARScene extends Component {
   getARScene() {
     return (
       <ViroNode>
-        {this.props.exhibit.map(exhibit=>{
-          // console.error('exhibit.target.targetImage', exhibit.target.targetImage)
-          return (
-            <ViroARImageMarker key={exhibit.target.targetImage} target={exhibit.target.targetImage}
-            onAnchorFound={this.onAnchorFound}>
-              <ViroImage
-                height={0.20}
-                width={0.15}
-                position={[0,0,0]}
-                rotation={[-90,0,0]}
-                style={styles.image}
-                source={{uri: exhibit.source}}
-              />
-            </ViroARImageMarker>
-          )
-        })}
+        <ViroARImageMarker target={'strive'}
+         onAnchorFound={this.onAnchorFound}>
+          <ViroImage
+            height={0.20}
+            width={0.15}
+            position={[0,0,0]}
+            rotation={[-90,0,0]}
+            style={styles.image}
+            source={require('../res/collection/obama.png')}
+          />
+        </ViroARImageMarker>
+        <ViroARImageMarker target={'fire'}
+         onAnchorFound={this.onAnchorFound}>
+          <ViroImage
+            height={0.20}
+            width={0.15}
+            position={[0,0,0]}
+            rotation={[-90,0,0]}
+            style={styles.image}
+            source={require('../res/collection/hartley.png')}
+          />
+        </ViroARImageMarker>
+        <ViroARImageMarker target={'screen'}
+         onAnchorFound={this.onAnchorFound}>
+          <ViroImage
+            height={0.20}
+            width={0.15}
+            position={[0,0,0]}
+            rotation={[-90,0,0]}
+            style={styles.image}
+            source={require('../res/collection/Qtrain.png')}
+          />
+        </ViroARImageMarker>
+        <ViroARImageMarker target={'GH'}
+         onAnchorFound={this.onAnchorFound}>
+          <ViroImage
+            height={0.20}
+            width={0.15}
+            position={[0,0,0]}
+            rotation={[-90,0,0]}
+            style={styles.image}
+            source={require('../res/collection/grace.jpeg')}
+          />
+        </ViroARImageMarker>
+        <ViroARImageMarker target={'PLACEHOLDER'}
+         onAnchorFound={this.onAnchorFound}>
+          <ViroImage
+            height={0.20}
+            width={0.15}
+            position={[0,0,0]}
+            rotation={[-90,0,0]}
+            style={styles.image}
+            source={require('../res/collection/PLACEHOLDER.png')}
+          />
+        </ViroARImageMarker>
       </ViroNode>
     )
   }
-
   render() {
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized} >
@@ -84,13 +117,13 @@ export class ARScene extends Component {
 }
 
 ViroARTrackingTargets.createTargets({
-  'GH':{
-    source: require('../res/targets/GH.jpg'),
+  'strive': {
+    source: require('../res/targets/strive.png'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'strive': {
-    source: require('../res/targets/strive.png'),
+  'GH':{
+    source: require('../res/targets/GH.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
@@ -99,35 +132,17 @@ ViroARTrackingTargets.createTargets({
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'staff':{
-    source: require('../res/targets/staff.png'),
+  'screen':{
+    source: require('../res/targets/screen.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
   'trust':{
-    source: require('../res/targets/trust.png'),
-    orientation: "Up",
-    physicalWidth: 0.1
-  },
-  'dontbe':{
-    source: require('../res/targets/dontbe.png'),
-    orientation: "Up",
-    physicalWidth: 0.1
-  },
-  'fullstack':{
-    source: require('../res/targets/fullstack.png'),
+    source: require('../res/targets/trust.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   }
- })
-
-// ViroARTrackingTargets.createTargets({
-//   'strive': {
-//     source: require('../res/targets/strive.png'),
-//     orientation: "Up",
-//     physicalWidth: 0.1
-//   },
-//  });
+ });
 
 var styles = StyleSheet.create({
   textStyle: {
@@ -165,5 +180,4 @@ const mapStateToProps = (state) => {
 
 const ConnectedARScene = connect(mapStateToProps, null)(ARScene)
 
-// export default ConnectedARScene
-module.exports = ConnectedARScene
+export default ConnectedARScene
