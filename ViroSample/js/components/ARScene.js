@@ -14,12 +14,16 @@ import {
 
 
 export class ARScene extends Component {
-
- state = {
-    isTracking: false,
-    initialized: false,
-    paused: false
-  }
+  constructor(){
+    super()
+    this.state = {
+      isTracking: false,
+      initialized: false,
+      paused: false
+    }
+  this.onInitialized = this.onInitialized.bind(this)
+  this.onAnchorFound = this.onAnchorFound.bind(this)
+}
 
   getNoTrackingUI(){
     const { isTracking, initialized } = this.state;
