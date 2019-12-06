@@ -104,7 +104,8 @@ const localStyles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 16,
-    color: '#fff'
+    color: '#fff',
+    fontFamily: 'Avenir-Black'
   }
 })
 
