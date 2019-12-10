@@ -60,8 +60,8 @@ export class ARScene extends Component {
             <ViroARImageMarker key={exhibit.target.targetImage} target={exhibit.target.targetImage}
             onAnchorFound={this.onAnchorFound}>
               <ViroImage
-                height={0.20}
-                width={0.15}
+                height={0.30}
+                width={0.30}
                 position={[0,0,0]}
                 rotation={[-90,0,0]}
                 style={styles.image}
@@ -84,13 +84,18 @@ export class ARScene extends Component {
 }
 
 ViroARTrackingTargets.createTargets({
+  'tape': {
+    source: require('../res/targets/tape.jpg'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
   'GH':{
     source: require('../res/targets/GH.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
   'strive': {
-    source: require('../res/targets/strive.png'),
+    source: require('../res/targets/strive.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
@@ -100,25 +105,40 @@ ViroARTrackingTargets.createTargets({
     physicalWidth: 0.1
   },
   'staff':{
-    source: require('../res/targets/staff.png'),
+    source: require('../res/targets/staff.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
   'trust':{
-    source: require('../res/targets/trust.png'),
+    source: require('../res/targets/trust.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'dontbe':{
-    source: require('../res/targets/dontbe.png'),
+  '45':{
+    source: require('../res/targets/45.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   },
-  'fullstack':{
-    source: require('../res/targets/fullstack.png'),
+  'subway':{
+    source: require('../res/targets/subway.jpg'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'federal':{
+    source: require('../res/targets/federal.jpg'),
+    orientation: "Up",
+    physicalWidth: 0.1
+  },
+  'hydrant':{
+    source: require('../res/targets/hydrant.jpg'),
     orientation: "Up",
     physicalWidth: 0.1
   }
+  // 'fullstack':{
+  //   source: require('../res/targets/fullstack.png'),
+  //   orientation: "Up",
+  //   physicalWidth: 0.1
+  // }
  })
 
 // ViroARTrackingTargets.createTargets({

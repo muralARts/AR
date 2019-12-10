@@ -20,6 +20,24 @@
             "targetImage": "staff"
           }
         },
+        "aman": {
+          "attributes": {
+            "artist": "Kehinde Wiley",
+            "description": "In this enormous painting, a young black man wears sneakers, blue jeans which are provocatively pulled down slightly to reveal the white underwear underneath, an orange t-shirt, lime green hooded sweatshirt, and an orange baseball cap tilted to the side. Based on a marble sculpture of a nude woman from 19th century France.",
+            "title": "Femme Piquée par un Serpent",
+            "year": 1996
+          },
+          "dimensions": {
+            "height": "0.2",
+            "width": "0.95"
+          },
+          "image": "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2Faman.png?alt=media&token=e6436071-7c0e-4a6c-80da-d2b26c501dc7",
+          "imageMarker": {
+            "orientation": "Up",
+            "physicalWidth": "0.1",
+            "targetImage": "subway"
+          }
+        },
         "frida": {
           "attributes": {
             "artist": "Diego Rivera",
@@ -53,7 +71,7 @@
           "imageMarker": {
             "orientation": "Up",
             "physicalWidth": "0.1",
-            "targetImage": "strive"
+            "targetImage": "45"
           }
         },
         "rbg": {
@@ -90,6 +108,24 @@
             "orientation": "Up",
             "physicalWidth": "0.1",
             "targetImage": "trust"
+          }
+        },
+        "Banana": {
+          "attributes": {
+            "artist": "Maurizio Cattelan",
+            "description": "Banana duct-taped to a wall",
+            "title": "Comedian",
+            "year": 2019
+          },
+          "dimensions": {
+            "height": "0.2",
+            "width": "0.15"
+          },
+          "image": "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2Fbanana.jpeg?alt=media&token=4ab26eec-59c7-4cff-897f-a7cb5e9c41b1",
+          "imageMarker": {
+            "orientation": "Up",
+            "physicalWidth": "0.1",
+            "targetImage": "tape"
           }
         }
       },
@@ -204,7 +240,7 @@
         "navImage": "https://firebasestorage.googleapis.com/v0/b/muralarts-c1fa2.appspot.com/o/collection%2FQTrain.jpg?alt=media&token=160b125e-ed89-4c6a-84bf-69c98025b35d"
       }
     },
-    "Classics aka Dead White Guys": {
+    "Classics": {
       "artwork": {
         "rosetta": {
           "attributes": {
@@ -293,7 +329,7 @@
           "imageMarker": {
             "orientation": "Up",
             "physicalWidth": "0.1",
-            "targetImage": "fire"
+            "targetImage": "federal"
           }
         }
       },
