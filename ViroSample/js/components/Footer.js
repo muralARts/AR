@@ -6,7 +6,7 @@ export const FooterNav = (props) => {
   return (
     <View style={styles.footerImage}>
       <View style={styles.iconPadding}>
-      <TouchableOpacity onPress={()=>onPress('MAP')} activeOpacity={0.5}>
+      <TouchableOpacity onPress={()=>onPress('EXHIBITIONS')} activeOpacity={0.5}>
         <Image style={styles.image} source={require('../res/icons/list.png')}></Image>
       </TouchableOpacity>
       </View>
