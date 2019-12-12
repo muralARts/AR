@@ -1,6 +1,5 @@
-# muralArts
-developed by: 
-
+# muralARts
+developed by: <br/>
 <br/>Olivia Sztanga
 <br/>Tawana Howard
 <br/>Harmony Richman
