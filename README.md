@@ -23,3 +23,8 @@ The tech stack we used for MuralARts is Firebase, React Native, Redux, and Viro 
 We chose to work with mainly new technologies for this application. In fact, the only part of our tech stack we had prior knowledge of was Redux. As most of the projects we built at Grace Hopper used relational database systems, we chose to work with Firebase, a noSQL database. It was also advantageous for its rapid read times, which we felt was highly desirable for a mobile application. We restructured the initial design of our database schema to achieve accurate database querying for the purposes of anchoring and mapping of artwork.
 
 We envision that this application will not only be utilized by individuals but will also become a tool for education in the classroom.
+
+
+![](muralARtsARScene.gif)
+
+![](muralARtsUserFlow.gif)
