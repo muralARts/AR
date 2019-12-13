@@ -1,4 +1,4 @@
-<img align="right" width=“200” height=“300” src="https://github.com/muralARts/AR/blob/master/homescreen.png”>
+<img align="right" src="https://github.com/muralARts/AR/blob/master/homescreen.png" width="200" height="400" />
                                                  
 # muralARts
 developed by: <br/>
