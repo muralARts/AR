@@ -1,3 +1,5 @@
+<img align="right" width=“200” height=“300” src="https://github.com/muralARts/AR/blob/master/homescreen.png”>
+                                                 
 # muralARts
 developed by: <br/>
 <br/>Olivia Sztanga
