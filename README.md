@@ -1,10 +1,11 @@
+<img align="right" src="https://github.com/muralARts/AR/blob/master/homescreen.png" width="200" height="400" />
+                                                 
 # muralARts
 developed by: <br/>
 <br/>Olivia Sztanga
 <br/>Tawana Howard
 <br/>Harmony Richman
 <br/>Windy Sengsatheuane
-
 
 # Introduction<br/>
 Did you want to go to Miami this year to see that really expensive banana? Did you spend all of that money and time to get out there only to find out that the banana was already gone?  Well, lucky for you, we’ve thought of a more convenient way for you to view art no matter where you are. 
